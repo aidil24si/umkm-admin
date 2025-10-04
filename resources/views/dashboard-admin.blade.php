@@ -244,6 +244,15 @@
                     <p class="mb-0">Monitor dan kelola semua proyek pembangunan</p>
                 </div>
 
+                <!-- Alert Login Berhasil -->
+                @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+
                 <!-- Stats Cards -->
                 <div class="row mb-4">
                     <div class="col-md-3">
