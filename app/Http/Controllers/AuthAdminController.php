@@ -31,15 +31,15 @@ class AuthAdminController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if (! $user) {
-            return redirect()->route('admin.login')->withErrors(['email' => 'Email tidak ditemukan']);
+            return redirect()->route('login')->withErrors(['email' => 'Email tidak ditemukan']);
         }
 
         if (! Hash::check($request->password, $user->password)) {
-            return redirect()->route('admin.login')->withErrors(['password' => 'Password salah']);
+            return redirect()->route('login')->withErrors(['password' => 'Password salah']);
         }
 
         Auth::login($user);
-        return redirect()->route('dashboard-admin.index');
+        return redirect()->route('dashboard.index');
     }
 
     public function register(Request $request)
@@ -74,7 +74,7 @@ class AuthAdminController extends Controller
 
         User::create($data);
 
-        return redirect()->route('admin.login')->with('success', 'Penambahan Akun Berhasil!');
+        return redirect()->route('login')->with('success', 'Penambahan Akun Berhasil!');
     }
 
     /**

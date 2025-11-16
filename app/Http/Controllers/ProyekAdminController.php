@@ -40,7 +40,7 @@ class ProyekAdminController extends Controller
 
         Proyek::create($data);
 
-        return redirect()->route('proyek-admin.index')->with('success', 'Penambahan Data Berhasil!');
+        return redirect()->route('proyek.index')->with('success', 'Penambahan Data Berhasil!');
     }
 
     /**
@@ -79,7 +79,7 @@ class ProyekAdminController extends Controller
         $proyek->deskripsi   = $request->deskripsi;
 
         $proyek->save();
-        return redirect()->route('proyek-admin.index')->with('success', 'Perubahan Data Berhasil!');
+        return redirect()->route('proyek.index')->with('success', 'Perubahan Data Berhasil!');
     }
 
     /**
@@ -89,6 +89,6 @@ class ProyekAdminController extends Controller
     {
         $proyek = Proyek::findOrFail($id);
         $proyek->delete();
-        return redirect()->route('proyek-admin.index');
+        return redirect()->route('proyek.index');
     }
 }

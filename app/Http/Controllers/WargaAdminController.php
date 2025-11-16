@@ -41,7 +41,7 @@ class WargaAdminController extends Controller
 
         Warga::create($data);
 
-        return redirect()->route('warga-admin.index')->with('success', 'Penambahan Data Berhasil!');
+        return redirect()->route('warga.index')->with('success', 'Penambahan Data Berhasil!');
     }
 
     /**
@@ -78,7 +78,7 @@ class WargaAdminController extends Controller
         $warga->email         = $request->email;
 
         $warga->save();
-        return redirect()->route('warga-admin.index')->with('success', 'Perubahan Data Berhasil!');
+        return redirect()->route('warga.index')->with('success', 'Perubahan Data Berhasil!');
     }
 
     /**
@@ -88,6 +88,6 @@ class WargaAdminController extends Controller
     {
         $warga = Warga::findOrFail($id);
         $warga->delete();
-        return redirect()->route('warga-admin.index');
+        return redirect()->route('warga.index');
     }
 }

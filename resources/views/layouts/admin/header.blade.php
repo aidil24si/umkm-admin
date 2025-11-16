@@ -1,10 +1,10 @@
 <div class="header">
 
             <div class="header-left active">
-                <a href="{{ route('dashboard-admin.index') }}" class="logo">
+                <a href="{{ route('dashboard.index') }}" class="logo">
                     <img src="{{ asset('assets-admin/img/logo.png') }}" alt="">
                 </a>
-                <a href="{{ route('dashboard-admin.index') }}" class="logo-small">
+                <a href="{{ route('dashboard.index') }}" class="logo-small">
                     <img src="{{ asset('assets-admin/img/logo-small.png') }}" alt="">
                 </a>
             </div>
@@ -193,13 +193,13 @@
                                 </div>
                             </div>
                             <hr class="m-0">
-                            <a class="dropdown-item" href="profile.html"> <i class="me-2" data-feather="user"></i>
+                            <a class="dropdown-item" href=""> <i class="me-2" data-feather="user"></i>
                                 My
                                 Profile</a>
-                            <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
+                            <a class="dropdown-item" href=""><i class="me-2"
                                     data-feather="settings"></i>Settings</a>
                             <hr class="m-0">
-                            <a class="dropdown-item logout pb-0" href="{{ route('admin.login') }}"><img
+                            <a class="dropdown-item logout pb-0" href="{{ route('login') }}"><img
                                     src="{{ asset('assets-admin/img/icons/log-out.svg') }}" class="me-2"
                                     alt="img">Logout</a>
                         </div>
@@ -211,9 +211,9 @@
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="generalsettings.html">Settings</a>
-                    <a class="dropdown-item" href="{{ route('admin.login') }}">Logout</a>
+                    <a class="dropdown-item" href="">My Profile</a>
+                    <a class="dropdown-item" href="">Settings</a>
+                    <a class="dropdown-item" href="{{ route('login') }}">Logout</a>
                 </div>
             </div>
 

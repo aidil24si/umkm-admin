@@ -62,7 +62,7 @@
                             </div>
                         </form>
                         <div class="signinform text-center">
-                            <h4>Sudah punya akun? <a href="{{ route('admin.login') }}" class="hover-a">Sign In</a></h4>
+                            <h4>Sudah punya akun? <a href="{{ route('login') }}" class="hover-a">Sign In</a></h4>
                         </div>
                     </div>
                 </div>

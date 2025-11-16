@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('proyek-admin.store') }}" method="POST">
+                    <form action="{{ route('proyek.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-lg-3 col-sm-6 col-12">
@@ -72,7 +72,7 @@
                                 <button type="reset" class="btn btn-cancel me-2">
                                     <i class="fe fe-refresh-cw"></i> Reset
                                 </button>
-                                <a href="{{ route('proyek-admin.index') }}" class="btn btn-cancel"><i class="fe fe-x"
+                                <a href="{{ route('proyek.index') }}" class="btn btn-cancel"><i class="fe fe-x"
                                         data-bs-toggle="tooltip" title="fe fe-x"></i> Cancel</a>
                             </div>
                         </div>

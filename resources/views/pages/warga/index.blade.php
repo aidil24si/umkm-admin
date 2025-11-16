@@ -9,7 +9,7 @@
                     <h6>Kelola Data Warga</h6>
                 </div>
                 <div class="page-btn">
-                    <a href="{{ route('warga-admin.create') }}" class="btn btn-added"><img
+                    <a href="{{ route('warga.create') }}" class="btn btn-added"><img
                             src="{{ asset('assets-admin/img/icons/plus.svg') }}" alt="img" class="me-1">Tambah Warga</a>
                 </div>
             </div>
@@ -98,10 +98,10 @@
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
                                                 <a class="btn-action btn-edit me-2" title="Edit Data"
-                                                    href="{{ route('warga-admin.edit', $item->warga_id) }}">
+                                                    href="{{ route('warga.edit', $item->warga_id) }}">
                                                     <i class="fe fe-edit"></i>
                                                 </a>
-                                                <form action="{{ route('warga-admin.destroy', $item->warga_id) }}"
+                                                <form action="{{ route('warga.destroy', $item->warga_id) }}"
                                                     method="POST" class="d-inline delete-form"
                                                     data-success-message="Data berhasil dihapus!">
                                                     @csrf

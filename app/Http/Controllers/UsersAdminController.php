@@ -52,7 +52,7 @@ class UsersAdminController extends Controller
 
         User::create($data);
 
-        return redirect()->route('user-admin.index')->with('success', 'Penambahan Data Berhasil!');
+        return redirect()->route('user.index')->with('success', 'Penambahan Data Berhasil!');
     }
 
     /**
@@ -104,7 +104,7 @@ class UsersAdminController extends Controller
         }
 
         $user->save();
-        return redirect()->route('user-admin.index')->with('success', 'Perubahan Data Berhasil!');
+        return redirect()->route('user.index')->with('success', 'Perubahan Data Berhasil!');
     }
 
     /**
@@ -114,6 +114,6 @@ class UsersAdminController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('user-admin.index');
+        return redirect()->route('user.index');
     }
 }

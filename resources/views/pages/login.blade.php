@@ -53,7 +53,7 @@
                             </div>
                         </form>
                         <div class="signinform text-center">
-                            <h4>Belum punya akun? <a href="{{ route('admin.register') }}" class="hover-a">Sign Up</a>
+                            <h4>Belum punya akun? <a href="{{ route('register') }}" class="hover-a">Sign Up</a>
                             </h4>
                         </div>
                     </div>

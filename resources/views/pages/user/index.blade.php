@@ -9,7 +9,7 @@
                     <h6>Kelola Data Users</h6>
                 </div>
                 <div class="page-btn">
-                    <a href="{{ route('user-admin.create') }}" class="btn btn-added"><img
+                    <a href="{{ route('user.create') }}" class="btn btn-added"><img
                             src="{{ asset('assets-admin/img/icons/plus.svg') }}" alt="img" class="me-1">Tambah Users</a>
                 </div>
             </div>
@@ -76,10 +76,10 @@
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
                                                 <a class="btn-action btn-edit me-2" title="Edit Data"
-                                                    href="{{ route('user-admin.edit', $item->id) }}">
+                                                    href="{{ route('user.edit', $item->id) }}">
                                                     <i class="fe fe-edit"></i>
                                                 </a>
-                                                <form action="{{ route('user-admin.destroy', $item->id) }}"
+                                                <form action="{{ route('user.destroy', $item->id) }}"
                                                     method="POST" class="d-inline delete-form"
                                                     data-success-message="Data berhasil dihapus!">
                                                     @csrf

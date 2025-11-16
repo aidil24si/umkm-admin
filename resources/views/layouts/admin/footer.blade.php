@@ -24,7 +24,7 @@
                             </a>
                         </div>
 
-                        Developed by <a href="{{route('dashboard-admin.index')}}" class="text-primary">Dreamguys</a>
+                        Developed by <a href="{{route('dashboard.index')}}" class="text-primary">Dreamguys</a>
                     </div>
                 </div>
             </div>

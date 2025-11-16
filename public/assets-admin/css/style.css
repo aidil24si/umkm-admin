@@ -7127,11 +7127,13 @@ span.select2-container.select2-container--default.select2-container--open {
 .badges.bg-lightgrey {
     background: #637381
 }
-.badges.bg-darkblue {
-    background: #0d57d0;
+
+.badges.bg-lightblue {
+    background: #0d6efd
 }
-.badges.bg-darkpink {
-    background: #ef1cbc;
+
+.badges.bg-lightpink {
+    background: #e83e8c
 }
 
 .add-icon span,

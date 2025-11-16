@@ -44,9 +44,9 @@
                                         <td>{{ $item->nama }}</td>
                                         <td>
                                             @if ($item->jenis_kelamin == 'Laki-laki')
-                                                <span class="badges bg-darkblue">Laki-laki</span>
+                                                <span class="badges bg-lightblue">Laki-laki</span>
                                             @else
-                                                <span class="badges bg-darkpink">Perempuan</span>
+                                                <span class="badges bg-lightpink">Perempuan</span>
                                             @endif
                                         </td>
                                         <td>{{ $item->agama }}</td>

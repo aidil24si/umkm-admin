@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('warga-admin.update', $dataWarga->warga_id) }}" method="POST">
+                    <form action="{{ route('warga.update', $dataWarga->warga_id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -77,7 +77,7 @@
                                 <button href="javascript:void(0);" type="submit" class="btn btn-submit me-2">Update
                                     Data
                                 </button>
-                                <a href="{{ route('warga-admin.index') }}" class="btn btn-cancel">Cancel</a>
+                                <a href="{{ route('warga.index') }}" class="btn btn-cancel">Cancel</a>
                             </div>
                         </div>
                     </form>
