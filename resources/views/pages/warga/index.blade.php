@@ -6,7 +6,7 @@
             <div class="page-header">
                 <div class="page-title">
                     <h4>List Warga</h4>
-                    <h6>Kelola Data Warga</h6>
+                    <h6>Kelola data warga</h6>
                 </div>
                 <div class="page-btn">
                     <a href="{{ route('warga.create') }}" class="btn btn-added"><img

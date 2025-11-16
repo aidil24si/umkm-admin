@@ -6,6 +6,7 @@ use App\Http\Controllers\UsersAdminController;
 use App\Http\Controllers\WargaAdminController;
 use App\Http\Controllers\ProyekAdminController;
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\TahapanProyekAdminController;
 
 // Warga Admin Routes
 Route::resource('warga', WargaAdminController::class);
@@ -18,6 +19,9 @@ Route::resource('dashboard', DashboardAdminController::class);
 
 //users admin routes
 Route::resource('user', UsersAdminController::class);
+
+//tahapan proyek admin routes
+Route::resource('tahapan', TahapanProyekAdminController::class);
 
 // Auth Admin Routes
 Route::get('/', [AuthAdminController::class, 'index'])->name('login');

@@ -9,7 +9,7 @@
                 </li>
             </ul>
             <ul>
-                <li class="nav-item {{ request()->routeIs('warga.*') || request()->routeIs('proyek.*') || request()->routeIs('user.*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->routeIs('warga.*') || request()->routeIs('proyek.*') || request()->routeIs('user.*') || request()->routeIs('tahapan.*') ? 'active' : ''}}">
                     <a><span>
                             Master Data</span> </a>
                 </li>
@@ -19,14 +19,19 @@
                             Warga</span> </a>
                 </li>
                 <li class="nav-item  {{ request()->routeIs('proyek.*') ? 'active' : '' }} ">
-                    <a href="{{ route('proyek.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
-                            title="fe fe-activity"></i><span>
+                    <a href="{{ route('proyek.index') }}"><i class="fe fe-map" data-bs-toggle="tooltip"
+                            title="fe fe-map"></i><span>
                             Proyek</span> </a>
                 </li>
                 <li class="nav-item  {{ request()->routeIs('user.*') ? 'active' : '' }} ">
                     <a href="{{ route('user.index') }}"><i class="fe fe-user" data-bs-toggle="tooltip"
                             title="fe fe-user"></i><span>
                             User</span> </a>
+                </li>
+                <li class="nav-item  {{ request()->routeIs('tahapan.*') ? 'active' : '' }} ">
+                    <a href="{{ route('tahapan.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
+                            title="fe fe-activity"></i><span>
+                            Tahapan</span> </a>
                 </li>
             </ul>
         </div>

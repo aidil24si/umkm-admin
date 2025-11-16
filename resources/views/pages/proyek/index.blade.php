@@ -6,7 +6,7 @@
             <div class="page-header">
                 <div class="page-title">
                     <h4>List Proyek</h4>
-                    <h6>Kelola Data Proyek</h6>
+                    <h6>Kelola data proyek</h6>
                 </div>
                 <div class="page-btn">
                     <a href="{{ route('proyek.create') }}" class="btn btn-added"><img

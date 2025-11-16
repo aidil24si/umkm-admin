@@ -5,8 +5,8 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Tambah Warga</h4>
-                    <h6>Membuat data warga</h6>
+                    <h4>Edit Warga</h4>
+                    <h6>Mengedit data warga</h6>
                 </div>
             </div>
 

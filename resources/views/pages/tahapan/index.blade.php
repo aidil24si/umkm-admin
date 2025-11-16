@@ -5,12 +5,12 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>List User</h4>
-                    <h6>Kelola data user</h6>
+                    <h4>List Tahapan Proyek</h4>
+                    <h6>Kelola data tahapan proyek</h6>
                 </div>
                 <div class="page-btn">
-                    <a href="{{ route('user.create') }}" class="btn btn-added"><img
-                            src="{{ asset('assets-admin/img/icons/plus.svg') }}" alt="img" class="me-1">Tambah Users</a>
+                    <a href="{{ route('tahapan.create') }}" class="btn btn-added"><img
+                            src="{{ asset('assets-admin/img/icons/plus.svg') }}" alt="img" class="me-1">Tambah Tahapan</a>
                 </div>
             </div>
             {{-- Notifikasi Success --}}
@@ -41,35 +41,35 @@
                         <table class="table  datanew">
                             <thead>
                                 <tr>
-                                    <th>
-                                        Username
-                                    </th>
-                                    <th>
-                                        Email
-                                    </th>
-                                    <th>
-                                        Password
-                                    </th>
-                                    <th>
-                                        Aksi
-                                    </th>
+                                    <th>Nama Tahapan</th>
+                                    <th>Nama Proyek</th>
+                                    <th>Target Persen</th>
+                                    <th>Tanggal Mulai</th>
+                                    <th>Tanggal Selesai</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataUser as $item)
+                                @foreach ($dataTahapan as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
-                                        <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
-                                        <td>{{ $item->password }}</td>
+                                        <td>{{ $item->nama_tahap }}</td>
+                                        <td>
+                                            <span class="badges bg-lightgrey">
+                                                {{ $item->proyek->nama_proyek ?? 'N/A' }}
+                                            </span>
+                                        </td>
+                                        <td>{{ number_format($item->target_persen, 2) }}%</td>
+                                        <td>{{ $item->tgl_mulai->format('d/m/Y') }}</td>
+                                        <td>{{ $item->tgl_selesai->format('d/m/Y') }}</td>
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
                                                 <a class="btn-action btn-edit me-2" title="Edit Data"
-                                                    href="{{ route('user.edit', $item->id) }}">
+                                                    href="{{ route('tahapan.edit', $item->tahap_id) }}">
                                                     <i class="fe fe-edit"></i>
                                                 </a>
-                                                <form action="{{ route('user.destroy', $item->id) }}"
+                                                <form action="{{ route('tahapan.destroy', $item->tahap_id) }}"
                                                     method="POST" class="d-inline delete-form"
-                                                    data-success-message="Data berhasil dihapus!">
+                                                    data-success-message="Data tahapan proyek berhasil dihapus!">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn-action btn-delete" title="Hapus Data">

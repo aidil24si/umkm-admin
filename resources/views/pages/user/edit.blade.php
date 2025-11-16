@@ -5,8 +5,8 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Tambah Proyek</h4>
-                    <h6>Membuat data proyek</h6>
+                    <h4>Edit User</h4>
+                    <h6>Mengedit data user</h6>
                 </div>
             </div>
 

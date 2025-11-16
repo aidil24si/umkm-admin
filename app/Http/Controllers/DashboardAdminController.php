@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Warga;
 use App\Models\Proyek;
 use Illuminate\Http\Request;
+use App\Models\TahapanProyek;
 
 class DashboardAdminController extends Controller
 {
@@ -13,6 +14,7 @@ class DashboardAdminController extends Controller
      */
     public function index()
     {
+        $data['dataTahapan'] = TahapanProyek::all();
         $data['dataWarga'] = Warga::all();
         $data['dataProyek'] = Proyek::all();
         $data['dataUser'] = User::all();
