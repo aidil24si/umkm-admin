@@ -45,7 +45,7 @@ class CreateProyekDummy extends Seeder
             'Program Pemberdayaan Masyarakat'
         ];
 
-        foreach (range(1, 50) as $index) {
+        foreach (range(1, 20) as $index) {
             $tahun = $faker->numberBetween(2020, 2025);
             $anggaran = $faker->randomFloat(2, 100000000, 5000000000); // 100 juta sampai 5 milyar
 

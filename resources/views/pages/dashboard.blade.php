@@ -6,7 +6,7 @@
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data Warga</h4>
-                    <div class="table-responsive">
+                    <div class="table-responsive dataview">
                         <table class="table datanew">
                             <thead>
                                 <tr>
@@ -44,9 +44,9 @@
                                         <td>{{ $item->nama }}</td>
                                         <td>
                                             @if ($item->jenis_kelamin == 'Laki-laki')
-                                                <span class="badges bg-lightblue">Laki-laki</span>
+                                                <span class="badges bg-darkblue">Laki-laki</span>
                                             @else
-                                                <span class="badges bg-lightpink">Perempuan</span>
+                                                <span class="badges bg-darkpink">Perempuan</span>
                                             @endif
                                         </td>
                                         <td>{{ $item->agama }}</td>
@@ -63,7 +63,7 @@
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data Proyek</h4>
-                    <div class="table-responsive">
+                    <div class="table-responsive dataview">
                         <table class="table datanew">
                             <thead>
                                 <tr>
@@ -116,7 +116,7 @@
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data User</h4>
-                    <div class="table-responsive">
+                    <div class="table-responsive dataview">
                         <table class="table datanew">
                             <thead>
                                 <tr>
