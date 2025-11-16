@@ -69,6 +69,9 @@
                                 <button href="javascript:void(0);" type="submit" class="btn btn-submit me-2">Tambah
                                     Data
                                 </button>
+                                <button type="reset" class="btn btn-cancel me-2">
+                                    <i class="fe fe-refresh-cw"></i> Reset
+                                </button>
                                 <a href="{{ route('proyek-admin.index') }}" class="btn btn-cancel"><i class="fe fe-x"
                                         data-bs-toggle="tooltip" title="fe fe-x"></i> Cancel</a>
                             </div>
