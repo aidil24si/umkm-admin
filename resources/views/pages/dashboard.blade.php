@@ -6,7 +6,7 @@
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data Warga</h4>
-                    <div class="table-responsive dataview">
+                    <div class="table-responsive">
                         <table class="table datanew">
                             <thead>
                                 <tr>
@@ -63,7 +63,7 @@
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data Proyek</h4>
-                    <div class="table-responsive dataview">
+                    <div class="table-responsive">
                         <table class="table datanew">
                             <thead>
                                 <tr>
@@ -116,7 +116,7 @@
             <div class="card mb-50">
                 <div class="card-body">
                     <h4 class="card-title">Data User</h4>
-                    <div class="table-responsive dataview">
+                    <div class="table-responsive">
                         <table class="table datanew">
                             <thead>
                                 <tr>

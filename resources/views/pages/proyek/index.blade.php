@@ -42,12 +42,6 @@
                         <table class="table datanew">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" id="select-all">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </th>
                                     <th scope="col" class="px-2 text-muted" style="width: 100px;">
                                         Kode Proyek
                                     </th>
@@ -77,12 +71,6 @@
                             <tbody>
                                 @foreach ($dataProyek as $item)
                                     <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
                                         <td class="px-2">{{ $item->kode_proyek }}</td>
                                         <td class="px-2">{{ $item->nama_proyek }}</td>
                                         <td class="px-2">{{ $item->tahun }}</td>

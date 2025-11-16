@@ -42,12 +42,6 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" id="select-all">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </th>
-                                    <th>
                                         Username
                                     </th>
                                     <th>
@@ -64,12 +58,6 @@
                             <tbody>
                                 @foreach ($dataUser as $item)
                                     <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
                                         <td>{{ $item->name }}</td>
                                         <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
                                         <td>{{ $item->password }}</td>

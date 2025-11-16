@@ -42,12 +42,6 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        <label class="checkboxs">
-                                            <input type="checkbox" id="select-all">
-                                            <span class="checkmarks"></span>
-                                        </label>
-                                    </th>
-                                    <th>
                                         NIK
                                     </th>
                                     <th>
@@ -76,19 +70,13 @@
                             <tbody>
                                 @foreach ($dataWarga as $item)
                                     <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
                                         <td>{{ $item->no_ktp }}</td>
                                         <td>{{ $item->nama }}</td>
                                         <td>
                                             @if ($item->jenis_kelamin == 'Laki-laki')
-                                                <span class="badges bg-darkblue">Laki-laki</span>
+                                                <span class="badges bg-lightblue">Laki-laki</span>
                                             @else
-                                                <span class="badges bg-darkpink">Perempuan</span>
+                                                <span class="badges bg-lightpink">Perempuan</span>
                                             @endif
                                         </td>
                                         <td>{{ $item->agama }}</td>
