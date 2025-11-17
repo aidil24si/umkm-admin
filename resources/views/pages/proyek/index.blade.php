@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-2 text-muted" style="width: 100px;">

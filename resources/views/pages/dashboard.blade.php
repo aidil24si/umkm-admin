@@ -153,7 +153,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-striped mb-0 ">
+                                <table class="table datanew table-striped mb-0 ">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
@@ -180,7 +180,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Data Warga</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th>
@@ -237,7 +237,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Data Proyek</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th scope="col" class="px-2 text-muted" style="width: 100px;">
@@ -290,7 +290,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Data User</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th>

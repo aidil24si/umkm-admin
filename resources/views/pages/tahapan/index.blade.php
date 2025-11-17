@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-striped mb-0">
+                        <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
                                     <th>Nama Tahapan</th>
