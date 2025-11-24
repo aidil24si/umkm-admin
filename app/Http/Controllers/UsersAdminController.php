@@ -10,9 +10,10 @@ class UsersAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['dataUser'] = User::paginate(10)->onEachSide(2);
+        $filterableColumns = ['email'];
+        $data['dataUser'] = User::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
         return view('pages.user.index', $data);
     }
 
