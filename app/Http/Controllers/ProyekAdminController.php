@@ -11,7 +11,7 @@ class ProyekAdminController extends Controller
      */
     public function index()
     {
-        $data['dataProyek'] = Proyek::all();
+        $data['dataProyek'] = Proyek::paginate(10)->onEachSide(2);
         return view('pages.proyek.index', $data);
     }
 
