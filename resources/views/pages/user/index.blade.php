@@ -34,6 +34,20 @@
                                         </option>
                                     </select>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="text" name="search" class="form-control" id="exampleInputIconRight"
+                                            value="{{ request('search') }}" placeholder="Search" aria-label="Search">
+                                        <button type="submit" class="input-group-text" id="basic-addon2">
+                                            <img src="{{ asset('assets-admin/img/icons/search-white.svg') }}"
+                                                alt="img">
+                                        </button>
+                                        @if (request('search'))
+                                            <a href="{{ request()->fullUrlWithQuery(['search' => null]) }}"
+                                                class="btn btn-outline-secondary ml-3" id="clear-search"> Clear</a>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </form>
                         <table class="table table-striped mb-0">

@@ -13,7 +13,12 @@ class UsersAdminController extends Controller
     public function index(Request $request)
     {
         $filterableColumns = ['email'];
-        $data['dataUser'] = User::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
+        $searchableColumns = ['name','email','password'];
+        $data['dataUser'] = User::filter($request, $filterableColumns)
+                                ->search($request,$searchableColumns)
+                                ->paginate(10)
+                                ->onEachSide(2)
+                                ->withQueryString();
         return view('pages.user.index', $data);
     }
 
