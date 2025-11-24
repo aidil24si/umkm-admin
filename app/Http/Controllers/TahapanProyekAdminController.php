@@ -11,9 +11,10 @@ class TahapanProyekAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['dataTahapan'] = TahapanProyek::paginate(10)->onEachSide(2);
+        $filterableColumns = ['nama_tahap'];
+        $data['dataTahapan'] = TahapanProyek::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
         return view('pages.tahapan.index', $data);
     }
 

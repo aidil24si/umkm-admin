@@ -22,82 +22,32 @@
             @endif
             <div class="card">
                 <div class="card-body">
-                    <div class="table-top">
-                        <div class="search-set">
-                            <div class="search-path">
-                                <a class="btn btn-filter" id="filter_search">
-                                    <img src="{{ asset('assets-admin/img/icons/filter.svg') }}" alt="img">
-                                    <span><img src="{{ asset('assets-admin/img/icons/closes.svg') }}" alt="img"></span>
-                                </a>
-                            </div>
-                            <div class="search-input">
-                                <a class="btn btn-searchset"><img
-                                        src="{{ asset('assets-admin/img/icons/search-white.svg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-0" id="filter_inputs">
-                        <div class="card-body pb-0">
+                    <div class="table-responsive">
+                        <form method="GET" action="{{ route('tahapan.index') }}" class="mb-3">
                             <div class="row">
-                                <div class="col-lg-12 col-sm-12">
-                                    <div class="row">
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Choose Product</option>
-                                                    <option>Macbook pro</option>
-                                                    <option>Orange</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Choose Category</option>
-                                                    <option>Computers</option>
-                                                    <option>Fruits</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Choose Sub Category</option>
-                                                    <option>Computer</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Brand</option>
-                                                    <option>N/D</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12 ">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Price</option>
-                                                    <option>150.00</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-1 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <a class="btn btn-filters ms-auto"><img
-                                                        src="{{ asset('assets-admin/img/icons/search-whites.svg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-3">
+                                    <select name="nama_tahap" class="form-select" onchange="this.form.submit()">
+                                        <option value="">All</option>
+                                        <option value="Perencanaan Awal" {{ request('nama_tahap') == 'Perencanaan Awal' ? 'selected' : '' }}>Perencanaan Awal
+                                        </option>
+                                        <option value="Penyusunan Dokumen" {{ request('nama_tahap') == 'Penyusunan Dokumen' ? 'selected' : '' }}>Penyusunan Dokumen
+                                        </option>
+                                        <option value="Appraisal dan Persetujuan" {{ request('nama_tahap') == 'Appraisal dan Persetujuan' ? 'selected' : '' }}>Appraisal dan Persetujuan
+                                        </option>
+                                        <option value="Pengadaan Barang/Jasa" {{ request('nama_tahap') == 'Pengadaan Barang/Jasa' ? 'selected' : '' }}>Pengadaan Barang/Jasa
+                                        </option>
+                                        <option value="Pelaksanaan Konstruksi" {{ request('nama_tahap') == 'Pelaksanaan Konstruksi' ? 'selected' : '' }}>Pelaksanaan Konstruksi
+                                        </option>
+                                        <option value="Pengawasan dan Monitoring" {{ request('nama_tahap') == 'Pengawasan dan Monitoring' ? 'selected' : '' }}>Pengawasan dan Monitoring
+                                        </option>
+                                        <option value="Serah Terima Pekerjaan" {{ request('nama_tahap') == 'Serah Terima Pekerjaan' ? 'selected' : '' }}>Serah Terima Pekerjaan
+                                        </option>
+                                        <option value="Penyelesaian Akhir" {{ request('nama_tahap') == 'Penyelesaian Akhir' ? 'selected' : '' }}>Penyelesaian Akhir
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="table-responsive">
+                        </form>
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
