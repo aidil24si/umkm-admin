@@ -29,9 +29,9 @@ class CreateWargaDummy extends Seeder
             'Pegawai Honorer'
         ];
 
-        foreach (range(1, 20) as $index) {
+        foreach (range(1, 100) as $index) {
             DB::table('warga')->insert([
-                'no_ktp' => $faker->unique()->numerify('################'), // 16 digit
+                'no_ktp' => $faker->unique()->numerify('################'),
                 'nama' => $faker->name,
                 'jenis_kelamin' => $faker->randomElement(['Laki-laki', 'Perempuan']),
                 'agama' => $faker->randomElement($agama),

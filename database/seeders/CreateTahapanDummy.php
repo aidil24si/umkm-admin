@@ -34,9 +34,9 @@ class CreateTahapanDummy extends Seeder
             $tahapanProyek = [];
             $currentDate   = $faker->dateTimeBetween($proyek->tahun . '-01-01', $proyek->tahun . '-06-30');
 
-            foreach (range(1, 1) as $tahapKe) {
+            foreach (range(5, 1) as $tahapKe) {
                 $namaTahap    = $namaTahapan[$tahapKe - 1];
-                $targetPersen = $tahapKe * 25; // 25%, 50%, 75%, 100%
+                $targetPersen = $tahapKe * 12.5; // 25%, 50%, 75%, 100%
 
                 // Tanggal selesai = tanggal mulai + 1-2 bulan
                 $tglSelesai = $faker->dateTimeBetween(

@@ -42,28 +42,28 @@
                         <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="px-2 text-muted" style="width: 100px;">
+                                    <th>
                                         Kode Proyek
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Nama Proyek
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 80px;">
+                                    <th>
                                         Tahun
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Lokasi
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Anggaran
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Sumber Dana
                                     </th>
-                                    <th scope="col" class="px-2 text-muted deskripsi-cell">
+                                    <th>
                                         Deskripsi
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 100px;">
+                                    <th>
                                         Aksi
                                     </th>
                                 </tr>
@@ -71,13 +71,13 @@
                             <tbody>
                                 @foreach ($dataProyek as $item)
                                     <tr>
-                                        <td class="px-2">{{ $item->kode_proyek }}</td>
-                                        <td class="px-2">{{ $item->nama_proyek }}</td>
-                                        <td class="px-2">{{ $item->tahun }}</td>
-                                        <td class="px-2">{{ $item->lokasi }}</td>
-                                        <td class="px-2"><span class="badges bg-lightgreen">Rp
+                                        <td>{{ $item->kode_proyek }}</td>
+                                        <td>{{ $item->nama_proyek }}</td>
+                                        <td>{{ $item->tahun }}</td>
+                                        <td>{{ $item->lokasi }}</td>
+                                        <td><span class="badges bg-lightgreen">Rp
                                                 {{ number_format($item->anggaran, 2, ',', '.') }}</span></td>
-                                        <td class="px-2">{{ $item->sumber_dana }}</td>
+                                        <td>{{ $item->sumber_dana }}</td>
                                         <td class="px-2 deskripsi-cell">{{ $item->deskripsi }}</td>
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
