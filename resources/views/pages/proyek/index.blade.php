@@ -23,82 +23,28 @@
             @endif
             <div class="card">
                 <div class="card-body">
-                    <div class="table-top">
-                        <div class="search-set">
-                            <div class="search-path">
-                                <a class="btn btn-filter" id="filter_search">
-                                    <img src="{{ asset('assets-admin/img/icons/filter.svg') }}" alt="img">
-                                    <span><img src="{{ asset('assets-admin/img/icons/closes.svg') }}" alt="img"></span>
-                                </a>
-                            </div>
-                            <div class="search-input">
-                                <a class="btn btn-searchset"><img
-                                        src="{{ asset('assets-admin/img/icons/search-white.svg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-0" id="filter_inputs">
-                        <div class="card-body pb-0">
+                    <div class="table-responsive">
+                        <form method="GET" action="{{ route('proyek.index') }}" class="mb-3">
                             <div class="row">
-                                <div class="col-lg-12 col-sm-12">
-                                    <div class="row">
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Choose Product</option>
-                                                    <option>Macbook pro</option>
-                                                    <option>Orange</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Choose Category</option>
-                                                    <option>Computers</option>
-                                                    <option>Fruits</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Choose Sub Category</option>
-                                                    <option>Computer</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Brand</option>
-                                                    <option>N/D</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg col-sm-6 col-12 ">
-                                            <div class="form-group">
-                                                <select class="select">
-                                                    <option>Price</option>
-                                                    <option>150.00</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-1 col-sm-6 col-12">
-                                            <div class="form-group">
-                                                <a class="btn btn-filters ms-auto"><img
-                                                        src="{{ asset('assets-admin/img/icons/search-whites.svg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-md-2">
+                                    <select name="tahun" class="form-select" onchange="this.form.submit()">
+                                        <option value="">All</option>
+                                        <option value="2025" {{ request('tahun') == '2025' ? 'selected' : '' }}>2025
+                                        </option>
+                                        <option value="2024" {{ request('tahun') == '2024' ? 'selected' : '' }}>2024
+                                        </option>
+                                        <option value="2023" {{ request('tahun') == '2023' ? 'selected' : '' }}>2023
+                                        </option>
+                                        <option value="2022" {{ request('tahun') == '2022' ? 'selected' : '' }}>2022
+                                        </option>
+                                        <option value="2021" {{ request('tahun') == '2021' ? 'selected' : '' }}>2021
+                                        </option>
+                                        <option value="2020" {{ request('tahun') == '2020' ? 'selected' : '' }}>2020
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="table-responsive">
+                        </form>
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>

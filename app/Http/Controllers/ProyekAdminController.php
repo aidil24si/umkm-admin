@@ -9,9 +9,10 @@ class ProyekAdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['dataProyek'] = Proyek::paginate(10)->onEachSide(2);
+        $filterableColumns = ['tahun'];
+        $data['dataProyek'] = Proyek::filter($request, $filterableColumns)->paginate(10)->onEachSide(2)->withQueryString();
         return view('pages.proyek.index', $data);
     }
 

@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class Proyek extends Model
 {
@@ -25,5 +26,15 @@ class Proyek extends Model
     public function tahapanProyek()
     {
         return $this->hasMany(TahapanProyek::class, 'proyek_id', 'proyek_id');
+    }
+
+    public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
+    {
+        foreach ($filterableColumns as $column) {
+            if ($request->filled($column)) {
+                $query->where($column, $request->input($column));
+            }
+        }
+        return $query;
     }
 }
