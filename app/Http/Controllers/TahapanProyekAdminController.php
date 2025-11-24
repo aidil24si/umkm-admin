@@ -13,7 +13,7 @@ class TahapanProyekAdminController extends Controller
      */
     public function index()
     {
-        $data['dataTahapan'] = TahapanProyek::all();
+        $data['dataTahapan'] = TahapanProyek::paginate(10)->onEachSide(2);
         return view('pages.tahapan.index', $data);
     }
 
