@@ -29,4 +29,12 @@ Route::post('/login', [AuthAdminController::class, 'login'])->name('admin.login'
 Route::get('/register', [AuthAdminController::class, 'regis'])->name('register');
 Route::post('/register', [AuthAdminController::class, 'register'])->name('admin.register');
 
+// Routes tambahan untuk dokumen proyek
+Route::prefix('proyek/{proyek}')->group(function () {
+    Route::post('/upload-dokumen', [ProyekAdminController::class, 'uploadDokumen'])->name('proyek.uploadDokumen');
+    Route::delete('/dokumen/{dokumen}', [ProyekAdminController::class, 'hapusDokumen'])->name('proyek.hapusDokumen');
+    Route::get('/dokumen/{dokumen}/download', [ProyekAdminController::class, 'downloadDokumen'])->name('proyek.downloadDokumen');
+    Route::post('/dokumen/{dokumen}/caption', [ProyekAdminController::class, 'updateCaption'])->name('proyek.updateCaption');
+});
+
 

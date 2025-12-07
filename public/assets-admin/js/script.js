@@ -191,3 +191,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 8000);
     }
 });
+//avaScript untuk menangani multiple files dengan caption
+document.getElementById('files').addEventListener('change', function(e) {
+                const captionContainer = document.getElementById('captionContainer');
+                captionContainer.innerHTML = '';
+
+                for (let i = 0; i < this.files.length; i++) {
+                    const fileName = this.files[i].name;
+                    const div = document.createElement('div');
+                    div.className = 'mb-2';
+                    div.innerHTML = `
+                    <label class="form-label small">Caption untuk ${fileName}</label>
+                    <input type="text"
+                           class="form-control form-control-sm"
+                           name="captions[]"
+                           placeholder="Masukkan deskripsi untuk ${fileName}">
+                `;
+                    captionContainer.appendChild(div);
+                }
+            });

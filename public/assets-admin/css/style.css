@@ -8381,7 +8381,7 @@ span.select2-container.select2-container--default.select2-container--open {
 }
 
 .btn-edit:hover {
-    background-color: #e0a800;
+    background-color: #e8ae01;
     color: #000;
 }
 
@@ -8392,6 +8392,16 @@ span.select2-container.select2-container--default.select2-container--open {
 
 .btn-delete:hover {
     background-color: #c82333;
+    color: #fff;
+}
+
+.btn-detail {
+    background-color: #1fa3ff;
+    color: #fff;
+}
+
+.btn-detail:hover {
+    background-color: #008def;
     color: #fff;
 }
 

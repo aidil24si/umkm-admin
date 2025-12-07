@@ -101,6 +101,10 @@
                                         <td class="px-2 deskripsi-cell">{{ $item->deskripsi }}</td>
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
+                                                <a class="btn-action btn-detail me-2" title="Detail Data"
+                                                    href="{{ route('proyek.show', $item->proyek_id) }}">
+                                                    <i class="fe fe-eye"></i>
+                                                </a>
                                                 <a class="btn-action btn-edit me-2" title="Edit Data"
                                                     href="{{ route('proyek.edit', $item->proyek_id) }}">
                                                     <i class="fe fe-edit"></i>

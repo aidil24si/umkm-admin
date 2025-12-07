@@ -1,8 +1,10 @@
 <?php
 namespace App\Models;
 
+use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Proyek extends Model
 {
@@ -23,6 +25,16 @@ class Proyek extends Model
         'anggaran' => 'decimal:2',
     ];
 
+    /**
+     * Relasi ke Media untuk dokumen proyek
+     */
+    public function dokumen(): HasMany
+    {
+        return $this->hasMany(Media::class, 'ref_id', 'proyek_id')
+                    ->where('ref_table', 'proyek')
+                    ->orderBy('sort_order', 'asc');
+    }
+
     public function tahapanProyek()
     {
         return $this->hasMany(TahapanProyek::class, 'proyek_id', 'proyek_id');
@@ -37,7 +49,7 @@ class Proyek extends Model
         }
         return $query;
     }
-    
+
     public function scopeSearch($query, $request, array $columns)
     {
         if ($request->filled('search')) {

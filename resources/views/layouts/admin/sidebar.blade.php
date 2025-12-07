@@ -23,15 +23,15 @@
                             title="fe fe-map"></i><span>
                             Proyek</span> </a>
                 </li>
-                <li class="nav-item  {{ request()->routeIs('user.*') ? 'active' : '' }} ">
-                    <a href="{{ route('user.index') }}"><i class="fe fe-user" data-bs-toggle="tooltip"
-                            title="fe fe-user"></i><span>
-                            User</span> </a>
-                </li>
                 <li class="nav-item  {{ request()->routeIs('tahapan.*') ? 'active' : '' }} ">
                     <a href="{{ route('tahapan.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
                             title="fe fe-activity"></i><span>
                             Tahapan</span> </a>
+                </li>
+                <li class="nav-item  {{ request()->routeIs('user.*') ? 'active' : '' }} ">
+                    <a href="{{ route('user.index') }}"><i class="fe fe-user" data-bs-toggle="tooltip"
+                            title="fe fe-user"></i><span>
+                            User</span> </a>
                 </li>
             </ul>
         </div>

@@ -240,28 +240,28 @@
                         <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="px-2 text-muted" style="width: 100px;">
+                                    <th>
                                         No.
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 100px;">
+                                    <th>
                                         Kode Proyek
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Nama Proyek
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 80px;">
+                                    <th>
                                         Tahun
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Lokasi
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Anggaran
                                     </th>
-                                    <th scope="col" class="px-2 text-muted" style="width: 120px;">
+                                    <th>
                                         Sumber Dana
                                     </th>
-                                    <th scope="col" class="px-2 text-muted deskripsi-cell">
+                                    <th class="px-2 text-muted deskripsi-cell">
                                         Deskripsi
                                     </th>
                                 </tr>
