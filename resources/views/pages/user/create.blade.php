@@ -31,6 +31,23 @@
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" id="role" name="role">
+                                        <option value="" selected disabled>Pilih Role User</option>
+                                        <option value="Super Admin" {{ old('role') == 'Super Admin' ? 'selected' : '' }}>
+                                            Super
+                                            Admin</option>
+                                        <option value="Admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>
+                                            Admin
+                                        </option>
+                                        <option value="Company" {{ old('role') == 'Company' ? 'selected' : '' }}>
+                                            Company
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
                                     <label for="password" class="form-label">Password</label>
                                     <div class="pass-group">
                                         <input type="text" id="password" class="pass-input" required name="password">

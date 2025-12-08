@@ -28,9 +28,11 @@
                                 <div class="col-md-2">
                                     <select name="email" class="form-select" onchange="this.form.submit()">
                                         <option value="">All</option>
-                                        <option value="@gmail.com" {{ request('email') == '@gmail.com' ? 'selected' : '' }}>@gmail.com
+                                        <option value="@gmail.com" {{ request('email') == '@gmail.com' ? 'selected' : '' }}>
+                                            @gmail.com
                                         </option>
-                                        <option value="@yahoo.com" {{ request('email') == '@yahoo.com' ? 'selected' : '' }}>@yahoo.com
+                                        <option value="@yahoo.com" {{ request('email') == '@yahoo.com' ? 'selected' : '' }}>
+                                            @yahoo.com
                                         </option>
                                     </select>
                                 </div>
@@ -62,6 +64,7 @@
                                     <th>
                                         Password
                                     </th>
+                                    <th>Role</th>
                                     <th>
                                         Aksi
                                     </th>
@@ -73,6 +76,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
                                         <td>{{ $item->password }}</td>
+                                        <td>{{ $item->role }}</td>
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
                                                 <a class="btn-action btn-edit me-2" title="Edit Data"

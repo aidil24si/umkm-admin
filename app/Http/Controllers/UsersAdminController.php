@@ -53,6 +53,7 @@ class UsersAdminController extends Controller
 
         $data['name']     = $request->name;
         $data['email']    = $request->email;
+        $data['role'] = $request->role;
         $data['password'] = $request->password;
         $data['password'] = Hash::make($request->password);
 
@@ -104,6 +105,7 @@ class UsersAdminController extends Controller
 
         $user->name  = $request->name;
         $user->email = $request->email;
+        $user->role = $request->role;
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);

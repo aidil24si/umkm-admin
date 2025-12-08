@@ -32,17 +32,31 @@
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" id="role" name="role">
+                                        <option value="" selected disabled>Pilih Role User</option>
+                                        <option value="Super Admin"
+                                            {{ $dataUser->role == 'Super Admin' ? 'Selected' : '' }}>Super Admin
+                                        <option value="Admin" {{ $dataUser->role == 'Admin' ? 'Selected' : '' }}>Admin
+                                        </option>
+                                        <option value="Company" {{ $dataUser->role == 'Company' ? 'Selected' : '' }}>Company
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="form-group">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="text" id="password" class="form-control" required name="password"
-                                        value="{{ $dataUser->password }}">
+                                    <input type="text" id="password" class="form-control" name="password"
+                                        placeholder="Kosongkan jika tidak ingin mengubah">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="password_confirmation" class="form-label">Konfirmasi
                                         Password</label>
-                                    <input type="text" id="password_confirmation" class="form-control" required
-                                        name="password_confirmation">
+                                    <input type="text" id="password_confirmation" class="form-control"
+                                        placeholder="Kosongkan jika tidak ingin mengubah" name="password_confirmation">
                                 </div>
                             </div>
                             <div class="col-lg-12">
