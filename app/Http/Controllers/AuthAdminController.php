@@ -13,12 +13,17 @@ class AuthAdminController extends Controller
      */
     public function index()
     {
-        return view('pages.login');
+        if (Auth::check()) {
+            //Redirect ke halaman dashboard
+            return redirect()->route('dashboard.index');
+        }
+        //Redirect ke halaman login
+        return view('auth.login');
     }
 
     public function regis()
     {
-        return view('pages.register');
+        return view('auth.register');
     }
 
     public function login(Request $request)
@@ -39,6 +44,10 @@ class AuthAdminController extends Controller
         }
 
         Auth::login($user);
+
+        // Simpan pesan ke session
+        session(['last_login' => now()]);
+
         return redirect()->route('dashboard.index');
     }
 
@@ -75,6 +84,16 @@ class AuthAdminController extends Controller
         User::create($data);
 
         return redirect()->route('login')->with('success', 'Penambahan Akun Berhasil!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();      // Hapus semua session
+        $request->session()->regenerateToken(); // Cegah CSRF
+
+        // Redirect ke halaman login
+        return redirect()->route('login');
     }
 
     /**

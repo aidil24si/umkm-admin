@@ -37,4 +37,7 @@ Route::prefix('proyek/{proyek}')->group(function () {
     Route::post('/dokumen/{dokumen}/caption', [ProyekAdminController::class, 'updateCaption'])->name('proyek.updateCaption');
 });
 
+//route auth logout user
+Route::get('logout', [AuthAdminController::class, 'logout'])->name('auth.logout');
+
 

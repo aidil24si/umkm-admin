@@ -6,6 +6,7 @@ use App\Models\Warga;
 use App\Models\Proyek;
 use Illuminate\Http\Request;
 use App\Models\TahapanProyek;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardAdminController extends Controller
 {
@@ -18,6 +19,11 @@ class DashboardAdminController extends Controller
         $data['dataWarga'] = Warga::all();
         $data['dataProyek'] = Proyek::all();
         $data['dataUser'] = User::all();
+        if (!Auth::check()) {
+		       //Redirect ke halaman dashboard
+               return redirect()->route('login');
+		    }
+		    //Redirect ke halaman login
         return view('pages.dashboard', $data);
     }
 
@@ -26,6 +32,11 @@ class DashboardAdminController extends Controller
      */
     public function create()
     {
+        if (!Auth::check()) {
+		       //Redirect ke halaman dashboard
+               return redirect()->route('login');
+		    }
+		    //Redirect ke halaman login
         return view('pages.warga.create');
     }
 
@@ -62,6 +73,11 @@ class DashboardAdminController extends Controller
      */
     public function edit(string $id)
     {
+        if (!Auth::check()) {
+		       //Redirect ke halaman dashboard
+               return redirect()->route('login');
+		    }
+		    //Redirect ke halaman login
         $data['dataWarga'] = Warga::findOrFail($id);
         return view('pages.warga.edit', $data);
     }

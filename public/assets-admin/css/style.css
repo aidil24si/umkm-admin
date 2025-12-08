@@ -8530,3 +8530,34 @@ span.select2-container.select2-container--default.select2-container--open {
     width: 35px;
     height: 35px;
 }
+
+.nav-item .userset {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-drop-user .dropdown-item {
+    font-weight: 500;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-drop-user .dropdown-item i {
+    width: 18px;
+}
+
+.account-login-btn {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.account-login-btn:hover {
+    background-color: #e9ecef;
+    border-color: #0d6efd;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.1);
+}
