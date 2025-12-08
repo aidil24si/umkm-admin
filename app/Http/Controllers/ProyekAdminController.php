@@ -124,19 +124,35 @@ class ProyekAdminController extends Controller
 
         $proyek       = Proyek::findOrFail($id);
         $allowedMimes = [
+            // Dokumen
             'pdf'  => 'application/pdf',
             'doc'  => 'application/msword',
             'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'xls'  => 'application/vnd.ms-excel',
             'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+
+            // Gambar
             'jpg'  => 'image/jpeg',
             'jpeg' => 'image/jpeg',
+            'jfif' => 'image/jpeg',
             'png'  => 'image/png',
             'gif'  => 'image/gif',
+            'webp' => 'image/webp',
+            'bmp'  => 'image/bmp',
+            'svg'  => 'image/svg+xml',
+            'tiff' => 'image/tiff',
+            'heic' => 'image/heic',
+            'heif' => 'image/heif',
         ];
 
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $index => $file) {
+                // 🔹 Validasi berdasarkan ekstensi file
+                $allowedExtensions = array_keys($allowedMimes);
+                if (! in_array(strtolower($file->getClientOriginalExtension()), $allowedExtensions)) {
+                    continue; // Lewati file jika tipe ekstensi tidak diperbolehkan
+                }
+
                 // Validasi tipe file
                 if (! in_array($file->getMimeType(), $allowedMimes)) {
                     continue; // Lewati file yang tidak valid

@@ -91,9 +91,11 @@
                                 <div class="mb-3">
                                     <label for="files" class="form-label">Pilih File</label>
                                     <input type="file" class="form-control" id="files" name="files[]" multiple
-                                        required accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.gif">
+                                        required
+                                        accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.gif,.webp,.bmp,.svg,.tiff,.heic,.heif">
                                     <div class="form-text">
-                                        Format: PDF, DOC, DOCX, XLS, XLSX, JPG, JPEG, PNG, GIF. Maksimal 2MB per file.
+                                        Format: PDF, DOC, DOCX, XLS, XLSX, JPG, JPEG, PNG, GIF, WEBP, BMP, SVG, TIFF, HEIC,
+                                        HEIF Maksimal 2MB per file.
                                     </div>
                                 </div>
 
@@ -139,28 +141,16 @@
                                         <tr>
                                             <td class="ps-3">{{ $index + 1 }}</td>
                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                    {{-- TAMPILKAN THUMBNAIL JIKA GAMBAR --}}
+                                                <div class="d-flex align-items-center gap-3">
                                                     @if ($dokumen->file_type == 'image')
-                                                        <div class="me-3">
-                                                            <img src="{{ $dokumen->file_url }}"
-                                                                alt="{{ $dokumen->caption ?? 'Gambar dokumen' }}"
-                                                                class="img-thumbnail"
-                                                                style="width: 50px; height: 50px; object-fit: cover;">
-                                                        </div>
-                                                    @else
-                                                        <div class="me-3">
-                                                            <i class="{{ $dokumen->file_icon }}"
-                                                                style="font-size: 1.5rem;"></i>
-                                                        </div>
+                                                        <img src="{{ $dokumen->file_url }}" alt="thumb"
+                                                            style="width:70px; height:70px; object-fit:cover; border-radius:6px;">
                                                     @endif
-                                                    <div>
-                                                        <div class="fw-medium text-truncate" style="max-width: 200px;">
-                                                            {{ $dokumen->display_name }}
-                                                        </div>
-                                                        <small
-                                                            class="text-muted">.{{ strtolower($dokumen->file_extension) }}</small>
-                                                    </div>
+
+                                                    <span class="text-truncate" style="max-width: 200px;"
+                                                        title="{{ pathinfo($dokumen->file_name, PATHINFO_FILENAME) }}">
+                                                        {{ pathinfo($dokumen->file_name, PATHINFO_FILENAME) }}
+                                                    </span>
                                                 </div>
                                             </td>
                                             <td>
