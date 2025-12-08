@@ -40,19 +40,16 @@ Route::prefix('proyek/{proyek}')->group(function () {
 //route auth logout user
 Route::get('logout', [AuthAdminController::class, 'logout'])->name('auth.logout');
 
-//route middleware checkrole Super admin
-Route::group(['middleware' => ['checkrole:Super Admin']], function () {
-    Route::get('warga', [WargaAdminController::class,'index'])->name('warga.index');
-    Route::get('proyek', [ProyekAdminController::class,'index'])->name('proyek.index');
-    Route::get('user', [UsersAdminController::class,'index'])->name('user.index');
-    Route::get('tahapan', [TahapanProyekAdminController::class,'index'])->name('tahapan.index');
-});
-
 //route middleware checkrole Admin
 Route::group(['middleware' => ['checkrole:Admin']], function () {
-    Route::get('warga', [WargaAdminController::class,'index'])->name('warga.index');
     Route::get('proyek', [ProyekAdminController::class,'index'])->name('proyek.index');
     Route::get('tahapan', [TahapanProyekAdminController::class,'index'])->name('tahapan.index');
+    Route::get('warga', [WargaAdminController::class,'index'])->name('warga.index');
+});
+
+//route middleware checkrole Super admin
+Route::group(['middleware' => ['checkrole:Super Admin']], function () {
+    Route::get('user', [UsersAdminController::class,'index'])->name('user.index');
 });
 
 

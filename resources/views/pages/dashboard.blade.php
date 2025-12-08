@@ -305,6 +305,9 @@
                                     <th>
                                         Password
                                     </th>
+                                    <th>
+                                        Role
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -314,6 +317,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
                                         <td>{{ $item->password }}</td>
+                                        <td>{{ $item->role }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
