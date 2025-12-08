@@ -9,19 +9,19 @@ use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TahapanProyekAdminController;
 
 // Warga Admin Routes
-Route::resource('warga', WargaAdminController::class);
+Route::resource('warga', WargaAdminController::class)->middleware('checkislogin');
 
 // Proyek Admin Routes
-Route::resource('proyek', ProyekAdminController::class);
+Route::resource('proyek', ProyekAdminController::class)->middleware('checkislogin');
 
 //Dashboard Admin Routes
-Route::resource('dashboard', DashboardAdminController::class);
+Route::resource('dashboard', DashboardAdminController::class)->middleware('checkislogin');
 
 //users admin routes
-Route::resource('user', UsersAdminController::class);
+Route::resource('user', UsersAdminController::class)->middleware('checkislogin');
 
 //tahapan proyek admin routes
-Route::resource('tahapan', TahapanProyekAdminController::class);
+Route::resource('tahapan', TahapanProyekAdminController::class)->middleware('checkislogin');
 
 // Auth Admin Routes
 Route::get('/', [AuthAdminController::class, 'index'])->name('login');
