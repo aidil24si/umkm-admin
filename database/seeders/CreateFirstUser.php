@@ -21,6 +21,13 @@ class CreateFirstUser extends Seeder
             'password' => Hash::make('admin123'),
         ];
 
+        $data = [
+            'name'     => 'Dzikri Maulana',
+            'email'    => 'dzikri@gmail.com',
+            'role'     => 'Super Admin',
+            'password' => Hash::make('dzikri123'),
+        ];
+
         User::create($data);
     }
 }
