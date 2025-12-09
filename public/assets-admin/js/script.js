@@ -565,10 +565,10 @@ $(document).ready(function () {
                 .removeClass("active");
             $(
                 '.tabs_container .tab_content[data-tab="' +
-                    $theTab +
-                    '"], ul.tabs li[id="' +
-                    $theTab +
-                    '"]'
+                $theTab +
+                '"], ul.tabs li[id="' +
+                $theTab +
+                '"]'
             ).addClass("active");
         }
     });
@@ -695,4 +695,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+});
+function previewImage(input) {
+    const container = document.querySelector('.profile-picture-container');
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            container.innerHTML = `<img src="${e.target.result}" class="profile-picture" alt="Preview">`;
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+// Feather icons initialization
+document.addEventListener('DOMContentLoaded', function () {
+    if (feather) {
+        feather.replace();
+    }
 });

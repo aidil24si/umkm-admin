@@ -7,7 +7,7 @@
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget">
                         <div class="dash-widgetimg">
-                            <span><img src="{{asset('assets-admin/img/icons/dash1.svg')}}" alt="img"></span>
+                            <span><img src="{{ asset('assets-admin/img/icons/dash1.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
                             <h5>Rp.<span class="counters">307.000.144.00</span></h5>
@@ -18,7 +18,7 @@
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget dash1">
                         <div class="dash-widgetimg">
-                            <span><img src="{{asset('assets-admin/img/icons/dash2.svg')}}" alt="img"></span>
+                            <span><img src="{{ asset('assets-admin/img/icons/dash2.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
                             <h5>Rp.<span class="counters">400.000.385.00</span></h5>
@@ -29,7 +29,7 @@
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget dash2">
                         <div class="dash-widgetimg">
-                            <span><img src="{{asset('assets-admin/img/icons/dash3.svg')}}" alt="img"></span>
+                            <span><img src="{{ asset('assets-admin/img/icons/dash3.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
                             <h5>Rp.<span class="counters">385.000.656.50</span></h5>
@@ -40,7 +40,7 @@
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="dash-widget dash3">
                         <div class="dash-widgetimg">
-                            <span><img src="{{asset('assets-admin/img/icons/dash4.svg')}}" alt="img"></span>
+                            <span><img src="{{ asset('assets-admin/img/icons/dash4.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
                             <h5>Rp.<span class="counters">400.000.000.00</span></h5>
@@ -146,7 +146,8 @@
                                         <a href="{{ route('tahapan.index') }}" class="dropdown-item">Lihat Detail</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('tahapan.create') }}" class="dropdown-item">Tambah Tahapan Proyek</a>
+                                        <a href="{{ route('tahapan.create') }}" class="dropdown-item">Tambah Tahapan
+                                            Proyek</a>
                                     </li>
                                 </ul>
                             </div>
@@ -317,7 +318,17 @@
                                         <td>{{ $item->name }}</td>
                                         <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
                                         <td>{{ $item->password }}</td>
-                                        <td>{{ $item->role }}</td>
+                                        <td>@php
+                                            $roleColors = [
+                                                'Super Admin' => 'bg-danger',
+                                                'Admin' => 'bg-success',
+                                                'Company' => 'bg-info',
+                                            ];
+                                        @endphp
+                                            <span class="badges {{ $roleColors[$item->role] ?? 'bg-secondary' }}">
+                                                {{ $item->role }}
+                                            </span>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

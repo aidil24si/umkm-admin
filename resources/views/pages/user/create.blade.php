@@ -12,7 +12,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('user.store') }}" method="POST">
+                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-lg-3 col-sm-6 col-12">
@@ -47,6 +47,10 @@
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
+                                <label>Foto Profil</label>
+                                <input type="file" class="form-control" name="profile_picture" accept="image/*">
+                            </div>
+                            <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="password" class="form-label">Password</label>
                                     <div class="pass-group">
@@ -67,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <button href="javascript:void(0);" type="submit" class="btn btn-submit me-2">Tambah
+                                <button href="javascript:void(0);" type="submit" class="btn btn-submit me-2"><i class="fe fe-save me-1"></i>Tambah
                                     Data
                                 </button>
                                 <button type="reset" class="btn btn-cancel me-2">

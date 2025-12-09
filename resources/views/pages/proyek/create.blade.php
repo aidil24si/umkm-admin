@@ -66,7 +66,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <button href="javascript:void(0);" type="submit" class="btn btn-submit me-2">Tambah
+                                <button href="javascript:void(0);" type="submit" class="btn btn-submit me-2"><i
+                                        class="fe fe-save me-1"></i>Tambah
                                     Data
                                 </button>
                                 <button type="reset" class="btn btn-cancel me-2">

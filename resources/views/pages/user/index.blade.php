@@ -28,7 +28,8 @@
                                 <div class="col-md-2">
                                     <select name="role" class="form-select" onchange="this.form.submit()">
                                         <option value="">All</option>
-                                        <option value="Super Admin" {{ request('role') == 'Super Admin' ? 'selected' : '' }}>
+                                        <option value="Super Admin"
+                                            {{ request('role') == 'Super Admin' ? 'selected' : '' }}>
                                             Super Admin
                                         </option>
                                         <option value="Admin" {{ request('role') == 'Admin' ? 'selected' : '' }}>
@@ -58,28 +59,53 @@
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th>
-                                        Username
-                                    </th>
-                                    <th>
-                                        Email
-                                    </th>
-                                    <th>
-                                        Password
-                                    </th>
+                                    <th>Foto</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
                                     <th>Role</th>
-                                    <th>
-                                        Aksi
-                                    </th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($dataUser as $item)
                                     <tr>
+                                        <td>
+                                            @if ($item->profile_picture)
+                                                <div class="position-relative">
+                                                    <img src="{{ asset('storage/' . $item->profile_picture) }}"
+                                                        class="rounded-circle border border-3 border-white shadow-sm"
+                                                        style="width: 48px; height: 48px; object-fit: cover; background: #f8f9fa;">
+                                                </div>
+                                            @else
+                                                <div class="position-relative">
+                                                    <div class="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 48px; height: 48px; background: ;">
+                                                        <i data-feather="user" style="width: 32px; height: 32px;"></i>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </td>
                                         <td>{{ $item->name }}</td>
                                         <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
-                                        <td>{{ $item->password }}</td>
-                                        <td>{{ $item->role }}</td>
+                                        <td>
+                                            <div class="password-field">
+                                                <span class="password-text">••••••••</span>
+                                                <small class="text-muted d-block">Hashed</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @php
+                                                $roleColors = [
+                                                    'Super Admin' => 'bg-danger',
+                                                    'Admin' => 'bg-success',
+                                                    'Company' => 'bg-info',
+                                                ];
+                                            @endphp
+                                            <span class="badges {{ $roleColors[$item->role] ?? 'bg-secondary' }}">
+                                                {{ $item->role }}
+                                            </span>
+                                        </td>
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
                                                 <a class="btn-action btn-edit me-2" title="Edit Data"
@@ -107,7 +133,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     {{-- End Main Content --}}

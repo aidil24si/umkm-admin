@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UsersAdminController extends Controller
 {
@@ -13,12 +14,12 @@ class UsersAdminController extends Controller
     public function index(Request $request)
     {
         $filterableColumns = ['role'];
-        $searchableColumns = ['name','email'];
-        $data['dataUser'] = User::filter($request, $filterableColumns)
-                                ->search($request,$searchableColumns)
-                                ->paginate(10)
-                                ->onEachSide(2)
-                                ->withQueryString();
+        $searchableColumns = ['name', 'email'];
+        $data['dataUser']  = User::filter($request, $filterableColumns)
+            ->search($request, $searchableColumns)
+            ->paginate(10)
+            ->onEachSide(2)
+            ->withQueryString();
         return view('pages.user.index', $data);
     }
 
@@ -53,9 +54,14 @@ class UsersAdminController extends Controller
 
         $data['name']     = $request->name;
         $data['email']    = $request->email;
-        $data['role'] = $request->role;
+        $data['role']     = $request->role;
         $data['password'] = $request->password;
         $data['password'] = Hash::make($request->password);
+
+        if ($request->hasFile('profile_picture')) {
+            $path                    = $request->file('profile_picture')->store('profile_pictures', 'public');
+            $data['profile_picture'] = $path;
+        }
 
         User::create($data);
 
@@ -105,10 +111,28 @@ class UsersAdminController extends Controller
 
         $user->name  = $request->name;
         $user->email = $request->email;
-        $user->role = $request->role;
+        $user->role  = $request->role;
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
+        }
+
+        // Hapus foto jika user pilih hapus foto
+        if ($request->remove_profile_picture) {
+            if ($user->profile_picture) {
+                Storage::disk('public')->delete($user->profile_picture);
+            }
+            $user->profile_picture = null;
+        }
+
+        // Upload foto baru
+        if ($request->hasFile('profile_picture')) {
+            if ($user->profile_picture) {
+                Storage::disk('public')->delete($user->profile_picture);
+            }
+
+            $path                  = $request->file('profile_picture')->store('profile_pictures', 'public');
+            $user->profile_picture = $path;
         }
 
         $user->save();

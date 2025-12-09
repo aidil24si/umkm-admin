@@ -344,7 +344,7 @@ div#global-loader,
 }
 
 .dropdown-menu {
-  z-index: 1050 !important;
+    z-index: 1050 !important;
 }
 
 .profile-set .profile-top .profile-contentimg,
@@ -7131,9 +7131,11 @@ span.select2-container.select2-container--default.select2-container--open {
 .badges.bg-lightgrey {
     background: #637381
 }
+
 .badges.bg-darkblue {
     background: #0d57d0;
 }
+
 .badges.bg-darkpink {
     background: #ef1cbc;
 }
@@ -8537,7 +8539,8 @@ span.select2-container.select2-container--default.select2-container--open {
     border-bottom: 1px solid #e2e8f0 !important;
 }
 
-h4, h5 {
+h4,
+h5 {
     font-weight: 600;
 }
 
@@ -8685,4 +8688,92 @@ h4, h5 {
     background-color: #e9ecef;
     border-color: #0d6efd;
     box-shadow: 0 2px 8px rgba(13, 110, 253, 0.1);
+}
+
+.profile-picture-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: whitesmoke;
+}
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+    color: black;
+}
+
+.btn-outline-primary:hover .feather,
+.btn-primary:hover .feather,
+.btn-outline-secondary:hover .feather {
+    color: inherit;
+}
+
+.form-check-label:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .profile-picture-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.avatar-placeholder {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.password-field {
+    font-family: 'Courier New', monospace;
+}
+.password-text {
+    letter-spacing: 2px;
+}
+
+.rounded-circle {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* Untuk placeholder juga */
+.avatar-placeholder {
+    width: 48px;
+    height: 48px;
+    aspect-ratio: 1/1;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

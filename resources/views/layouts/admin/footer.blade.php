@@ -135,7 +135,7 @@
                                     <span class="text-dark">
                                         NIM:
                                         <a href="" class="text-decoration-none fw-bold text-primary">
-                                            12345678
+                                            2457301037
                                         </a>
                                     </span>
                                 </span>

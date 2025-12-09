@@ -14,12 +14,12 @@ class CreateFirstUser extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            'name'     => 'Admin',
-            'email'    => 'admin@gmail.com',
-            'role'     => 'Admin',
-            'password' => Hash::make('admin123'),
-        ];
+        // $data = [
+        //     'name'     => 'Admin',
+        //     'email'    => 'admin@gmail.com',
+        //     'role'     => 'Admin',
+        //     'password' => Hash::make('admin123'),
+        // ];
 
         $data = [
             'name'     => 'Dzikri Maulana',
