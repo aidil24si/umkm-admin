@@ -79,7 +79,7 @@
                 </div>
 
                 {{-- Upload Dokumen --}}
-                <div class="col-md-6">
+                <div class="col-md-6 d-flex">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Upload Dokumen Proyek</h5>
