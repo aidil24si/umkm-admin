@@ -2,7 +2,7 @@
 
     <div class="header-left active">
         <a href="{{ route('dashboard.index') }}" class="logo">
-            <img src="{{ asset('assets-admin/img/logo.png') }}" alt="">
+            <img src="{{ asset('assets-admin/img/logo.svg') }}" alt="">
         </a>
         <a href="{{ route('dashboard.index') }}" class="logo-small">
             <img src="{{ asset('assets-admin/img/logo-small.png') }}" alt="">
@@ -197,7 +197,7 @@
                         <hr class="m-0">
                         <a class="dropdown-item" href=""> <i class="me-2" data-feather="clock"></i>
                             {{ session('last_login') }}</a>
-                        <a class="dropdown-item" href="{{route('profile')}}"> <i class="me-2" data-feather="user"></i>
+                        <a class="dropdown-item" href=""> <i class="me-2" data-feather="user"></i>
                             My
                             Profile</a>
                         <a class="dropdown-item" href=""><i class="me-2"

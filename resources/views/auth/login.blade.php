@@ -7,11 +7,11 @@
                 <div class="login-content">
                     <div class="login-userset">
                         <div class="login-logo">
-                            <img src="{{ asset('assets-admin/img/logo.png') }}" alt="img">
+                            <img src="{{ asset('assets-admin/img/logo.svg') }}" alt="img">
                         </div>
                         <div class="login-userheading">
-                            <h3>Sign In</h3>
-                            <h4>Access to our dashboard</h4>
+                            <h3>Login</h3>
+                            <h4>Silahkan Login terlebih dahulu</h4>
                         </div>
 
                         @if ($errors->any())
@@ -35,7 +35,7 @@
                             <div class="form-login">
                                 <label>Email</label>
                                 <div class="form-addons">
-                                    <input type="email" name="email" placeholder="Enter your email address"
+                                    <input type="email" name="email" placeholder="Masukkan alamat email"
                                         value="{{ old('email') }}" required>
                                     <img src="{{ asset('assets-admin/img/icons/mail.svg') }}" alt="img">
                                 </div>
@@ -44,16 +44,16 @@
                                 <label>Password</label>
                                 <div class="pass-group">
                                     <input type="password" name="password" class="pass-input"
-                                        placeholder="Enter your password" required>
+                                        placeholder="Masukkan password" required>
                                     <span class="fas toggle-password fa-eye-slash"></span>
                                 </div>
                             </div>
                             <div class="form-login">
-                                <button type="submit" class="btn btn-login">Sign In</button>
+                                <button type="submit" class="btn btn-login">Masuk</button>
                             </div>
                         </form>
                         <div class="signinform text-center">
-                            <h4>Belum punya akun? <a href="{{ route('register') }}" class="hover-a">Sign Up</a>
+                            <h4>Belum punya akun? <a href="{{ route('register') }}" class="hover-a">Regis Disini</a>
                             </h4>
                         </div>
                     </div>

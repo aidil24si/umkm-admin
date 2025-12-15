@@ -3,6 +3,61 @@
     {{-- Start Main Content --}}
     <div class="page-wrapper">
         <div class="content">
+            {{-- Slideshow Proyek Desa --}}
+            <div class="card mb-4">
+                <div id="desaCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#desaCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#desaCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#desaCarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner rounded">
+                        {{-- Slide 1 --}}
+                        <div class="carousel-item active">
+                            <img src="https://lintasbalikpapan.com/wp-content/uploads/2024/12/IMG-20241209-WA0298.jpg"
+                                class="d-block w-100" style="height:420px; object-fit:cover;" alt="Proyek Desa">
+                            <div class="carousel-caption bg-dark bg-opacity-50 rounded px-3 py-2">
+                                <h5>Pembangunan Infrastruktur Desa</h5>
+                                <p>Sekolah dan fasilitas desa</p>
+                            </div>
+                        </div>
+
+                        {{-- Slide 2 --}}
+                        <div class="carousel-item">
+                            <img src="https://cms.disway.id/uploads/0f59c2bba3c652a2e8b386fa3493233f.jpeg"
+                                class="d-block w-100" style="height:420px; object-fit:cover;" alt="Pembangunan">
+                            <div class="carousel-caption bg-dark bg-opacity-50 rounded px-3 py-2">
+                                <h5>Pelaksanaan Proyek Desa</h5>
+                                <p>Transparan, terencana, dan berkelanjutan</p>
+                            </div>
+                        </div>
+
+                        {{-- Slide 3 --}}
+                        <div class="carousel-item">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivpZBFDRHlYDFWV03UE5TLVG-t_WJXgts7JXdSVpdlN_xXyzN-N_IaHrtSfrHYD8W-3I-g3YC4rBeI7nQ60it1o86aKvSQs66Rao57croZPNFQMUXpoqhbMcz6l8n0k5JrfBqyUU8-GXk6QIHZ5UFhqfqhvXjDUlgpt9RxchPGZGjB-RAx2OIpu3JQ16Au/s16000/IMG-20240609-WA0049.jpg"
+                                class="d-block w-100" style="height:420px; object-fit:cover;" alt="Partisipasi Warga">
+                            <div class="carousel-caption bg-dark bg-opacity-50 rounded px-3 py-2">
+                                <h5>Partisipasi Masyarakat Desa</h5>
+                                <p>Warga terlibat aktif dalam pembangunan</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#desaCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#desaCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+
+                </div>
+            </div>
             <div class="row">
                 {{-- Total Pembayaran --}}
                 <div class="col-lg-3 col-sm-6 col-12">
@@ -320,7 +375,7 @@
                             <tbody>
                                 @foreach ($dataUser as $item)
                                     <tr>
-                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>
                                             @if ($item->profile_picture)
                                                 <div class="position-relative">
