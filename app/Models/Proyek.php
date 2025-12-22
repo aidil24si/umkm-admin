@@ -2,8 +2,8 @@
 namespace App\Models;
 
 use App\Models\Media;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Proyek extends Model
@@ -31,13 +31,31 @@ class Proyek extends Model
     public function dokumen(): HasMany
     {
         return $this->hasMany(Media::class, 'ref_id', 'proyek_id')
-                    ->where('ref_table', 'proyek')
-                    ->orderBy('sort_order', 'asc');
+            ->where('ref_table', 'proyek')
+            ->orderBy('sort_order', 'asc');
     }
 
     public function tahapanProyek()
     {
         return $this->hasMany(TahapanProyek::class, 'proyek_id', 'proyek_id');
+    }
+
+    /**
+     * Relasi ke ProgresProyek
+     */
+    public function progresProyek(): HasMany
+    {
+        return $this->hasMany(ProgresProyek::class, 'proyek_id', 'proyek_id');
+    }
+
+    public function lokasiProyek()
+    {
+        return $this->hasOne(LokasiProyek::class, 'proyek_id', 'proyek_id');
+    }
+
+    public function kontraktorProyek(): HasMany
+    {
+        return $this->hasMany(KontraktorProyek::class, 'proyek_id', 'proyek_id');
     }
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder

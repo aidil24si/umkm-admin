@@ -1,29 +1,31 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 
-class TahapanProyek extends Model
+class ProgresProyek extends Model
 {
-    protected $table      = 'tahapan_proyek';
-    protected $primaryKey = 'tahap_id';
-    protected $fillable   = [
+    protected $table = 'progres_proyek';
+    protected $primaryKey = 'progres_id';
+    protected $fillable = [
         'proyek_id',
-        'nama_tahap',
-        'target_persen',
-        'tgl_mulai',
-        'tgl_selesai',
+        'tahap_id',
+        'persen_real',
+        'tanggal',
+        'catatan',
     ];
 
     protected $casts = [
-        'target_persen' => 'decimal:2',
-        'tgl_mulai'     => 'date',
-        'tgl_selesai'   => 'date',
+        'tanggal' => 'date',
+        'persen_real' => 'decimal:2',
     ];
 
     /**
-     * Get the proyek that owns the tahapan proyek.
+     * Relasi ke Proyek
      */
     public function proyek()
     {
@@ -31,13 +33,26 @@ class TahapanProyek extends Model
     }
 
     /**
-     * Get the progres for the tahapan proyek.
+     * Relasi ke TahapanProyek
      */
-    public function progresProyek(): HasMany
+    public function tahapan()
     {
-        return $this->hasMany(ProgresProyek::class, 'tahap_id', 'tahap_id');
+        return $this->belongsTo(TahapanProyek::class, 'tahap_id', 'tahap_id');
     }
 
+    /**
+     * Relasi ke Media untuk foto progres
+     */
+    public function foto(): HasMany
+    {
+        return $this->hasMany(Media::class, 'ref_id', 'progres_id')
+                    ->where('ref_table', 'progres_proyek')
+                    ->orderBy('sort_order', 'asc');
+    }
+
+    /**
+     * Scope untuk filter
+     */
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
     {
         foreach ($filterableColumns as $column) {
@@ -48,6 +63,9 @@ class TahapanProyek extends Model
         return $query;
     }
 
+    /**
+     * Scope untuk search
+     */
     public function scopeSearch($query, $request, array $columns)
     {
         if ($request->filled('search')) {

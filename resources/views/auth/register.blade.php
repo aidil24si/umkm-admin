@@ -7,7 +7,7 @@
                 <div class="login-content">
                     <div class="login-userset">
                         <div class="login-logo">
-                            <img src="{{ asset('assets-admin/img/logo.svg') }}" alt="img">
+                            <img src="{{ asset('assets-admin/img/logo-admin.svg') }}" alt="img">
                         </div>
                         <div class="login-userheading">
                             <h3>Register</h3>
@@ -67,7 +67,6 @@
                     </div>
                 </div>
                 <div class="login-img">
-
                 </div>
             </div>
         </div>

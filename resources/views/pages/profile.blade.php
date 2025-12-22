@@ -24,7 +24,7 @@
                                     class="rounded-circle mb-3" width="160" height="160" style="object-fit: cover;"
                                     alt="Profile">
 
-                                <h3 class="fw-bold">{{ Auth::user()->name }}</h3>
+                                <h3 class="fw-bold">Dzikri Maulana</h3>
                                 <span class="badge bg-primary mb-2">Full Stack Developer</span>
 
                                 <p class="text-muted mt-3">
@@ -79,6 +79,9 @@
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <p><strong>Kelas :</strong><br>2 SI B</p>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <p><strong>Prodi :</strong><br>D4 Sistem Informasi</p>
                                     </div>
                                 </div>
                             </div>

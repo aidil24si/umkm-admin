@@ -182,7 +182,7 @@
                             <div class="d-flex align-items-center justify-content-center justify-content-md-start">
                                 <i class="fas fa-university text-primary me-2"></i>
                                 <span class="text-dark fw-semibold">
-                                    Monitoring Data Masyarakat dan Proyek Desa Sebanga
+                                    Pembangunan dan Monitoring Proyek Desa Balam Sempurna
                                 </span>
                             </div>
                         </div>

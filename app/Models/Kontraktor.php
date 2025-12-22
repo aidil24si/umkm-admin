@@ -4,38 +4,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class TahapanProyek extends Model
+class Kontraktor extends Model
 {
-    protected $table      = 'tahapan_proyek';
-    protected $primaryKey = 'tahap_id';
-    protected $fillable   = [
+    protected $table = 'kontraktor';
+    protected $primaryKey = 'kontraktor_id';
+    protected $fillable = [
         'proyek_id',
-        'nama_tahap',
-        'target_persen',
-        'tgl_mulai',
-        'tgl_selesai',
-    ];
-
-    protected $casts = [
-        'target_persen' => 'decimal:2',
-        'tgl_mulai'     => 'date',
-        'tgl_selesai'   => 'date',
+        'nama',
+        'penanggung_jawab',
+        'kontak',
+        'alamat',
     ];
 
     /**
-     * Get the proyek that owns the tahapan proyek.
+     * Get the proyek that owns the kontraktor.
      */
     public function proyek()
     {
         return $this->belongsTo(Proyek::class, 'proyek_id', 'proyek_id');
-    }
-
-    /**
-     * Get the progres for the tahapan proyek.
-     */
-    public function progresProyek(): HasMany
-    {
-        return $this->hasMany(ProgresProyek::class, 'tahap_id', 'tahap_id');
     }
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder

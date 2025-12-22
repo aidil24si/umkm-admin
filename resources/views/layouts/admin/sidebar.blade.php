@@ -9,7 +9,8 @@
                 </li>
             </ul>
             <ul>
-                <li class="nav-item {{ request()->routeIs('warga.*') || request()->routeIs('proyek.*') || request()->routeIs('user.*') || request()->routeIs('tahapan.*') ? 'active' : ''}}">
+                <li class="nav-item {{ request()->routeIs('warga.*') || request()->routeIs('proyek.*') || request()->routeIs('user.*') || request()->routeIs('tahapan.*')
+                || request()->routeIs('progres.*') || request()->routeIs('lokasi.*') || request()->routeIs('kontraktor.*') ? 'active' : ''}}">
                     <a><span>
                             Master Data</span> </a>
                 </li>
@@ -27,6 +28,21 @@
                     <a href="{{ route('tahapan.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
                             title="fe fe-activity"></i><span>
                             Tahapan</span> </a>
+                </li>
+                <li class="nav-item  {{ request()->routeIs('progres.*') ? 'active' : '' }} ">
+                    <a href="{{ route('progres.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
+                            title="fe fe-activity"></i><span>
+                            Progres</span> </a>
+                </li>
+                <li class="nav-item  {{ request()->routeIs('lokasi.*') ? 'active' : '' }} ">
+                    <a href="{{ route('lokasi.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
+                            title="fe fe-activity"></i><span>
+                            Lokasi</span> </a>
+                </li>
+                <li class="nav-item  {{ request()->routeIs('kontraktor.*') ? 'active' : '' }} ">
+                    <a href="{{ route('kontraktor.index') }}"><i class="fe fe-activity" data-bs-toggle="tooltip"
+                            title="fe fe-activity"></i><span>
+                            Kontraktor</span> </a>
                 </li>
                 <li class="nav-item  {{ request()->routeIs('user.*') ? 'active' : '' }} ">
                     <a href="{{ route('user.index') }}"><i class="fe fe-user" data-bs-toggle="tooltip"

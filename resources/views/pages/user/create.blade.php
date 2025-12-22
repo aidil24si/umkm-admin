@@ -40,8 +40,8 @@
                                         <option value="Admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>
                                             Admin
                                         </option>
-                                        <option value="Company" {{ old('role') == 'Company' ? 'selected' : '' }}>
-                                            Company
+                                        <option value="Guest" {{ old('role') == 'Guest' ? 'selected' : '' }}>
+                                            Guest
                                         </option>
                                     </select>
                                 </div>

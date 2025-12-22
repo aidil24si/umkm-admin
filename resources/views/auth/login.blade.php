@@ -7,7 +7,7 @@
                 <div class="login-content">
                     <div class="login-userset">
                         <div class="login-logo">
-                            <img src="{{ asset('assets-admin/img/logo.svg') }}" alt="img">
+                            <img src="{{ asset('assets-admin/img/logo-admin.svg') }}" alt="img">
                         </div>
                         <div class="login-userheading">
                             <h3>Login</h3>
@@ -52,14 +52,9 @@
                                 <button type="submit" class="btn btn-login">Masuk</button>
                             </div>
                         </form>
-                        <div class="signinform text-center">
-                            <h4>Belum punya akun? <a href="{{ route('register') }}" class="hover-a">Regis Disini</a>
-                            </h4>
-                        </div>
                     </div>
                 </div>
                 <div class="login-img">
-
                 </div>
             </div>
         </div>
