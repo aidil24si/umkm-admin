@@ -30,6 +30,9 @@ Route::resource('warga', WargaAdminController::class)->middleware('checkislogin'
 // Proyek Admin Routes
 Route::resource('proyek', ProyekAdminController::class)->middleware('checkislogin');
 
+// lokasi Admin Routes
+Route::resource('lokasi', LokasiProyekAdminController::class)->middleware('checkislogin');
+
 //route mengarah ke halaman profile pengembang
 Route::get('/profile', [ProfileAdminController::class, 'index'])->name('profile');
 
@@ -73,8 +76,6 @@ Route::post('/progres-proyek/{id}/upload-foto', [ProgresProyekAdminController::c
 Route::delete('/progres-proyek/{progresId}/hapus-foto/{fotoId}', [ProgresProyekAdminController::class, 'hapusFoto'])->name('progres-proyek.hapusFoto');
 Route::get('/progres-proyek/{progresId}/download-foto/{fotoId}', [ProgresProyekAdminController::class, 'downloadFoto'])->name('progres-proyek.downloadFoto');
 Route::post('/progres-proyek/{progresId}/update-caption/{fotoId}', [ProgresProyekAdminController::class, 'updateCaption'])->name('progres-proyek.updateCaption');
-
-Route::resource('lokasi', LokasiProyekAdminController::class)->middleware('checkislogin');
 
 // Routes untuk upload dan manajemen dokumen/foto lokasi proyek
 Route::post('/lokasi-proyek/{id}/upload-dokumen', [LokasiProyekAdminController::class, 'uploadDokumen'])->name('lokasi-proyek.uploadDokumen');
