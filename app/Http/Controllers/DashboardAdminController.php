@@ -9,6 +9,7 @@ use App\Models\LokasiProyek;
 use Illuminate\Http\Request;
 use App\Models\ProgresProyek;
 use App\Models\TahapanProyek;
+use App\Models\ViewWargaDashboard;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardAdminController extends Controller
@@ -19,7 +20,10 @@ class DashboardAdminController extends Controller
     public function index()
     {
         $data['dataTahapan'] = TahapanProyek::all();
-        $data['dataWarga'] = Warga::all();
+
+        //pengambilan data menggunakan view
+        $data['dataWarga'] = ViewWargaDashboard::all();
+
         $data['dataProyek'] = Proyek::all();
         $data['dataLokasi'] = LokasiProyek::all();
         $data['dataProgres'] = ProgresProyek::all();

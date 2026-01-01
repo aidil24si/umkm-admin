@@ -16,7 +16,16 @@ class ProyekAdminController extends Controller
     {
         $filterableColumns  = ['tahun'];
         $searchableColumns  = ['nama_proyek', 'lokasi', 'sumber_dana'];
-        $data['dataProyek'] = Proyek::filter($request, $filterableColumns)
+        $data['dataProyek'] = Proyek::select('proyek.*')
+                ->selectSub(function ($query) {
+                $query->from('kontraktor')
+                    ->selectRaw('COUNT(*)')
+                    ->whereColumn(
+                        'kontraktor.proyek_id',
+                        'proyek.proyek_id'
+                    );
+            }, 'total_kontraktor')
+            ->filter($request, $filterableColumns)
             ->search($request, $searchableColumns)
             ->paginate(10)
             ->onEachSide(2)

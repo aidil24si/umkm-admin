@@ -81,6 +81,9 @@
                                         Sumber Dana
                                     </th>
                                     <th>
+                                        Total Kontraktor
+                                    </th>
+                                    <th>
                                         Deskripsi
                                     </th>
                                     <th>
@@ -98,6 +101,7 @@
                                         <td><span class="badges bg-lightgreen">Rp
                                                 {{ number_format($item->anggaran, 2, ',', '.') }}</span></td>
                                         <td>{{ $item->sumber_dana }}</td>
+                                        <td>{{ $item->total_kontraktor }}</td>
                                         <td class="px-2 deskripsi-cell">{{ $item->deskripsi }}</td>
                                         <td>
                                             <div class="action-buttons d-flex align-items-center">
