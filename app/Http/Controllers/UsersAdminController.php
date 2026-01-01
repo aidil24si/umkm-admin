@@ -15,12 +15,36 @@ class UsersAdminController extends Controller
     {
         $filterableColumns = ['role'];
         $searchableColumns = ['name', 'email'];
-        $data['dataUser']  = User::filter($request, $filterableColumns)
-            ->search($request, $searchableColumns)
-            ->paginate(10)
-            ->onEachSide(2)
-            ->withQueryString();
-        return view('pages.user.index', $data);
+
+        $query = User::query();
+
+        // FILTER
+        if ($request->filled('role')) {
+            $query->where('role', $request->role);
+        }
+
+        // SEARCH
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%')
+                    ->orWhere('email', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        // PAGINATION
+        $dataUser = $query->paginate(10)->withQueryString();
+
+        // ====== PADANAN SQL%FOUND / SQL%NOTFOUND / SQL%ROWCOUNT ======
+        if ($dataUser->total() === 0) {
+            session()->flash('error', 'Tidak ada User yang terpilih');
+        } else {
+            session()->flash(
+                'info',
+                $dataUser->total() . ' user selected'
+            );
+        }
+
+        return view('pages.user.index', compact('dataUser'));
     }
 
     /**

@@ -20,6 +20,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+
+            @if (session('error'))
+                <div class="alert alert-warning alert-dismissible fade show">
+                    {{ session('error') }}
+                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            @endif
+
+            @if (session('info'))
+                <div class="alert alert-info alert-dismissible fade show">
+                    {{ session('info') }}
+                    <button class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -68,7 +83,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataUser as $item)
+                                @forelse ($dataUser as $item)
                                     <tr>
                                         <td>
                                             @if ($item->profile_picture)
@@ -124,7 +139,13 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">
+                                            Tidak ada data user ditemukan
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                         <div class="mt-3">
