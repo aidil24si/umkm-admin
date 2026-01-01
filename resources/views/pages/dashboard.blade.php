@@ -66,7 +66,7 @@
                             <span><img src="{{ asset('assets-admin/img/icons/dash1.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
-                            <h5>Rp.<span class="counters">307.000.144.00</span></h5>
+                            <h5>Rp.<span class="counters">307.000.144,00</span></h5>
                             <h6>Total Pembayaran</h6>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             <span><img src="{{ asset('assets-admin/img/icons/dash3.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
-                            <h5>Rp.<span class="counters">385.000.656.50</span></h5>
+                            <h5>Rp.<span class="counters">385.000.656,50</span></h5>
                             <h6>Total Pemasukan</h6>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                             <span><img src="{{ asset('assets-admin/img/icons/dash4.svg') }}" alt="img"></span>
                         </div>
                         <div class="dash-widgetcontent">
-                            <h5>Rp.<span class="counters">400.000.000.00</span></h5>
+                            <h5>Rp.<span class="counters">400.000.000,00</span></h5>
                             <h6>Total Pengeluaran</h6>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count">
                         <div class="dash-counts">
-                            <h4>100</h4>
+                            <h4>{{ $jumlahWarga }}</h4>
                             <h5>Warga</h5>
                         </div>
                         <div class="dash-imgs">
@@ -125,7 +125,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das1">
                         <div class="dash-counts">
-                            <h4>100</h4>
+                            <h4>{{ $jumlahProyek }}</h4>
                             <h5>Proyek</h5>
                         </div>
                         <div class="dash-imgs">
@@ -137,7 +137,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das2">
                         <div class="dash-counts">
-                            <h4>100</h4>
+                            <h4>{{ $jumlahLokasi }}</h4>
                             <h5>Lokasi Proyek</h5>
                         </div>
                         <div class="dash-imgs">
@@ -149,7 +149,7 @@
                 <div class="col-lg-3 col-sm-6 col-12 d-flex">
                     <div class="dash-count das3">
                         <div class="dash-counts">
-                            <h4>105</h4>
+                            <h4>{{ $jumlahKontraktor }}</h4>
                             <h5>Kontraktor</h5>
                         </div>
                         <div class="dash-imgs">
@@ -356,61 +356,71 @@
                     </div>
                 </div>
             </div>
-            {{-- Data User --}}
+            {{-- Data Progres --}}
             <div class="card mb-50">
                 <div class="card-body">
-                    <h4 class="card-title">Data User</h4>
+                    <h4 class="card-title">Data Progres</h4>
                     <div class="table-responsive">
                         <table class="table datanew table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Foto</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Password</th>
-                                    <th>Role</th>
+                                    <th>Proyek</th>
+                                    <th>Tahap</th>
+                                    <th>Persen Real</th>
+                                    <th>Tanggal</th>
+                                    <th>Catatan</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataUser as $item)
+                                @foreach ($dataProgres as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->proyek->nama_proyek }}</td>
+                                        <td>{{ $item->tahapan->nama_tahap }}</td>
                                         <td>
-                                            @if ($item->profile_picture)
-                                                <div class="position-relative">
-                                                    <img src="{{ asset('storage/' . $item->profile_picture) }}"
-                                                        class="rounded-circle border border-3 border-white shadow-sm"
-                                                        style="width: 48px; height: 48px; object-fit: cover; background: #f8f9fa;">
-                                                </div>
+                                            <span class="badges bg-lightgreen">{{ $item->persen_real }}%</span>
+                                        </td>
+                                        <td>{{ \Carbon\Carbon::parse($item->tanggal)->format('d/m/Y') }}</td>
+                                        <td class="catatan-cell">{{ Str::limit($item->catatan, 50) }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {{-- Data Lokasi --}}
+            <div class="card mb-50">
+                <div class="card-body">
+                    <h4 class="card-title">Data Lokasi</h4>
+                    <div class="table-responsive">
+                        <table class="table datanew table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Proyek</th>
+                                    <th>Koordinat</th>
+                                    <th>GeoJSON</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($dataLokasi as $item)
+                                    <tr>
+                                        <td>
+                                            <strong>{{ $item->proyek->kode_proyek }}</strong><br>
+                                            <small>{{ $item->proyek->nama_proyek }}</small>
+                                        </td>
+                                        <td>
+                                            @if ($item->lat && $item->lng)
+                                                {{ $item->lat }}, {{ $item->lng }}
                                             @else
-                                                <div class="position-relative">
-                                                    <div class="avatar-placeholder rounded-circle d-flex align-items-center justify-content-center"
-                                                        style="width: 48px; height: 48px; background: ;">
-                                                        <i data-feather="user" style="width: 32px; height: 32px;"></i>
-                                                    </div>
-                                                </div>
+                                                <span class="text-muted">-</span>
                                             @endif
                                         </td>
-                                        <td>{{ $item->name }}</td>
-                                        <td><span class="badges bg-lightgrey">{{ $item->email }}</span></td>
                                         <td>
-                                            <div class="password-field">
-                                                <span class="password-text">••••••••</span>
-                                                <small class="text-muted d-block">Hashed</small>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            @php
-                                                $roleColors = [
-                                                    'Super Admin' => 'bg-danger',
-                                                    'Admin' => 'bg-success',
-                                                    'Company' => 'bg-info',
-                                                ];
-                                            @endphp
-                                            <span class="badges {{ $roleColors[$item->role] ?? 'bg-secondary' }}">
-                                                {{ $item->role }}
-                                            </span>
+                                            @if ($item->geojson)
+                                                <span class="badge bg-success">Ada</span>
+                                            @else
+                                                <span class="badge bg-secondary">Tidak Ada</span>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -419,6 +429,41 @@
                     </div>
                 </div>
             </div>
+            {{-- Data Kontraktor --}}
+            <div class="card mb-50">
+                <div class="card-body">
+                    <h4 class="card-title">Data Kontraktor</h4>
+                    <div class="table-responsive">
+                        <table class="table datanew table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Nama Kontraktor</th>
+                                    <th>Nama Proyek</th>
+                                    <th>Penanggung Jawab</th>
+                                    <th>Kontak</th>
+                                    <th>Alamat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($dataKontraktor as $item)
+                                    <tr>
+                                        <td>{{ $item->nama }}</td>
+                                        <td>
+                                            <span class="badges bg-lightgrey">
+                                                {{ $item->proyek->nama_proyek ?? 'N/A' }}
+                                            </span>
+                                        </td>
+                                        <td>{{ $item->penanggung_jawab }}</td>
+                                        <td>{{ $item->kontak }}</td>
+                                        <td>{{ Str::limit($item->alamat, 30) }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     {{-- End Main Content --}}
