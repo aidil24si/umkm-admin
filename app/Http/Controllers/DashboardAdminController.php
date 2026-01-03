@@ -22,7 +22,11 @@ class DashboardAdminController extends Controller
         $data['dataTahapan'] = TahapanProyek::all();
 
         //pengambilan data menggunakan view
-        $data['dataWarga'] = ViewWargaDashboard::all();
+        $data['dataWarga'] = Warga::all();
+
+
+        //pengambilan data menggunakan view
+        $data['viewWarga'] = ViewWargaDashboard::all();
 
         $data['dataProyek'] = Proyek::all();
         $data['dataLokasi'] = LokasiProyek::all();

@@ -45,6 +45,11 @@ class AuthAdminController extends Controller
 
         Auth::login($user);
 
+        // pemicu trigger
+        $user->update([
+            'last_login' => now(),
+        ]);
+
         // Simpan pesan ke session
         session(['last_login' => now()]);
 

@@ -15,10 +15,22 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, string $role): Response
     {
-        if (Auth::check() && Auth::user()->role == $role) {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $userRole = Auth::user()->role;
+
+        // Super Admin boleh akses SEMUA
+        if ($userRole === 'Super Admin') {
             return $next($request);
         }
 
-        return abort('403');
+        // Admin hanya boleh jika route mengizinkan Admin
+        if ($userRole === 'Admin' && $role === 'Admin') {
+            return $next($request);
+        }
+
+        abort(403, 'Anda tidak memiliki akses ke halaman ini');
     }
 }

@@ -15,26 +15,9 @@ use App\Http\Controllers\TahapanProyekAdminController;
 //Dashboard Admin Routes
 Route::resource('dashboard', DashboardAdminController::class)->middleware('checkislogin');
 
-//tahapan proyek admin routes
-Route::resource('tahapan', TahapanProyekAdminController::class)->middleware('checkislogin');
-
-// Kontraktor Proyek Routes
-Route::resource('kontraktor', KontraktorAdminController::class)->middleware('checkislogin');
-
-// Progres Proyek Routes
-Route::resource('progres', ProgresProyekAdminController::class)->middleware('checkislogin');
-
-// Warga Admin Routes
-Route::resource('warga', WargaAdminController::class)->middleware('checkislogin');
-
-// Proyek Admin Routes
-Route::resource('proyek', ProyekAdminController::class)->middleware('checkislogin');
-
-// lokasi Admin Routes
-Route::resource('lokasi', LokasiProyekAdminController::class)->middleware('checkislogin');
-
 //route mengarah ke halaman profile pengembang
 Route::get('/profile', [ProfileAdminController::class, 'index'])->name('profile');
+
 
 // Auth Admin Routes
 Route::get('/', [AuthAdminController::class, 'index'])->name('login');
@@ -54,7 +37,7 @@ Route::prefix('proyek/{proyek}')->group(function () {
 Route::get('logout', [AuthAdminController::class, 'logout'])->name('auth.logout');
 
 //route middleware checkrole Admin
-Route::group(['middleware' => ['checkrole:Admin, Super Admin']], function () {
+Route::middleware(['checkislogin', 'checkrole:Admin'])->group(function () {
     Route::resource('proyek', ProyekAdminController::class);
     Route::resource('tahapan', TahapanProyekAdminController::class);
     Route::resource('warga', WargaAdminController::class);
@@ -63,11 +46,9 @@ Route::group(['middleware' => ['checkrole:Admin, Super Admin']], function () {
     Route::resource('kontraktor', KontraktorAdminController::class);
 });
 
-//users admin routes
-Route::resource('user', UsersAdminController::class)->middleware('checkislogin');
 
 //route middleware checkrole Super admin
-Route::group(['middleware' => ['checkrole:Super Admin']], function () {
+Route::middleware(['checkislogin', 'checkrole:Super Admin'])->group(function () {
     Route::resource('user', UsersAdminController::class);
 });
 
