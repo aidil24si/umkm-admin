@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -45,8 +44,13 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'password'          => 'hashed',
         ];
+    }
+
+    public function warga()
+    {
+        return $this->hasMany(Warga::class, 'user_id');
     }
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
