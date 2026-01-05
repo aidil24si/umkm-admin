@@ -279,7 +279,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($viewWarga as $item)
+                                @foreach ($dataWarga as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->no_ktp }}</td>

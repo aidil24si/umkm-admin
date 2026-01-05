@@ -34,3 +34,4 @@ class CheckRole
         abort(403, 'Anda tidak memiliki akses ke halaman ini');
     }
 }
+    
