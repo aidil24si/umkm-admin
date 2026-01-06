@@ -54,6 +54,7 @@ class AuthAdminController extends Controller
         session(['last_login' => now()]);
 
         return redirect()->route('dashboard.index');
+
     }
 
     public function register(Request $request)
