@@ -1,68 +1,70 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthAdminController;
-use App\Http\Controllers\UsersAdminController;
-use App\Http\Controllers\WargaAdminController;
-use App\Http\Controllers\ProyekAdminController;
-use App\Http\Controllers\ProfileAdminController;
-use App\Http\Controllers\DashboardAdminController;
-use App\Http\Controllers\KontraktorAdminController;
-use App\Http\Controllers\LokasiProyekAdminController;
-use App\Http\Controllers\ProgresProyekAdminController;
-use App\Http\Controllers\TahapanProyekAdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UmkmController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WargaController;
+use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailPesananController;
 
 //Dashboard Admin Routes
-Route::resource('dashboard', DashboardAdminController::class)->middleware('checkislogin');
+Route::resource('dashboard', DashboardController::class)->middleware('checkislogin');
 
 //route mengarah ke halaman profile pengembang
-Route::get('/profile', [ProfileAdminController::class, 'index'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 
 // Auth Admin Routes
-Route::get('/', [AuthAdminController::class, 'index'])->name('login');
-Route::post('/login', [AuthAdminController::class, 'login'])->name('admin.login');
-Route::get('/register', [AuthAdminController::class, 'regis'])->name('register');
-Route::post('/register', [AuthAdminController::class, 'register'])->name('admin.register');
+Route::get('/', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('admin.login');
+Route::get('/register', [AuthController::class, 'regis'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('admin.register');
 
-// Routes tambahan untuk dokumen proyek
-Route::prefix('proyek/{proyek}')->group(function () {
-    Route::post('/upload-dokumen', [ProyekAdminController::class, 'uploadDokumen'])->name('proyek.uploadDokumen');
-    Route::delete('/dokumen/{dokumen}', [ProyekAdminController::class, 'hapusDokumen'])->name('proyek.hapusDokumen');
-    Route::get('/dokumen/{dokumen}/download', [ProyekAdminController::class, 'downloadDokumen'])->name('proyek.downloadDokumen');
-    Route::post('/dokumen/{dokumen}/caption', [ProyekAdminController::class, 'updateCaption'])->name('proyek.updateCaption');
+// Routes tambahan untuk foto umkm
+Route::prefix('umkm/{umkm}')->group(function () {
+    Route::post('/upload-foto', [UmkmController::class, 'uploadFoto'])->name('umkm.uploadFoto');
+    Route::delete('/foto/{foto}', [UmkmController::class, 'hapusFoto'])->name('umkm.hapusFoto');
+    Route::get('/foto/{foto}/download', [UmkmController::class, 'downloadFoto'])->name('umkm.downloadFoto');
+    Route::post('/foto/{foto}/caption', [UmkmController::class, 'updateCaption'])->name('umkm.updateCaption');
 });
 
 //route auth logout user
-Route::get('logout', [AuthAdminController::class, 'logout'])->name('auth.logout');
+Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 //route middleware checkrole Admin
 Route::middleware(['checkislogin', 'checkrole:Admin'])->group(function () {
-    Route::resource('proyek', ProyekAdminController::class);
-    Route::resource('tahapan', TahapanProyekAdminController::class);
-    Route::resource('warga', WargaAdminController::class);
-    Route::resource('progres', ProgresProyekAdminController::class);
-    Route::resource('lokasi', LokasiProyekAdminController::class);
-    Route::resource('kontraktor', KontraktorAdminController::class);
+    Route::resource('umkm', UmkmController::class);
+    Route::resource('produk', ProdukController::class);
+    Route::resource('warga', WargaController::class);
+    Route::resource('pesanan', PesananController::class);
+    Route::resource('lokasi', LokasiController::class);
+    Route::resource('ulasan', UlasanController::class);
+    Route::resource('detail', DetailPesananController::class);
 });
+
+//upload foto produk
+Route::post('produk/{id}/upload-foto', [ProdukController::class, 'uploadFoto'])->name('produk.uploadFoto');
+Route::delete('produk/{produkId}/foto/{fotoId}', [ProdukController::class, 'hapusFoto'])->name('produk.hapusFoto');
+Route::get('produk/{produkId}/foto/{fotoId}/download', [ProdukController::class, 'downloadFoto'])->name('produk.downloadFoto');
+Route::put('produk/{produkId}/foto/{fotoId}/caption', [ProdukController::class, 'updateCaption'])->name('produk.updateCaption');
 
 
 //route middleware checkrole Super admin
 Route::middleware(['checkislogin', 'checkrole:Super Admin'])->group(function () {
-    Route::resource('user', UsersAdminController::class);
+    Route::resource('user', UsersController::class);
 });
 
 // Routes untuk upload dan manajemen foto
-Route::post('/progres-proyek/{id}/upload-foto', [ProgresProyekAdminController::class, 'uploadFoto'])->name('progres-proyek.uploadFoto');
-Route::delete('/progres-proyek/{progresId}/hapus-foto/{fotoId}', [ProgresProyekAdminController::class, 'hapusFoto'])->name('progres-proyek.hapusFoto');
-Route::get('/progres-proyek/{progresId}/download-foto/{fotoId}', [ProgresProyekAdminController::class, 'downloadFoto'])->name('progres-proyek.downloadFoto');
-Route::post('/progres-proyek/{progresId}/update-caption/{fotoId}', [ProgresProyekAdminController::class, 'updateCaption'])->name('progres-proyek.updateCaption');
-
-// Routes untuk upload dan manajemen dokumen/foto lokasi proyek
-Route::post('/lokasi-proyek/{id}/upload-dokumen', [LokasiProyekAdminController::class, 'uploadDokumen'])->name('lokasi-proyek.uploadDokumen');
-Route::delete('/lokasi-proyek/{lokasiId}/hapus-dokumen/{dokumenId}', [LokasiProyekAdminController::class, 'hapusDokumen'])->name('lokasi-proyek.hapusDokumen');
-Route::get('/lokasi-proyek/{lokasiId}/download-dokumen/{dokumenId}', [LokasiProyekAdminController::class, 'downloadDokumen'])->name('lokasi-proyek.downloadDokumen');
-Route::post('/lokasi-proyek/{lokasiId}/update-caption/{dokumenId}', [LokasiProyekAdminController::class, 'updateCaption'])->name('lokasi-proyek.updateCaption');
+Route::post('/pesanan/{id}/upload-foto', [PesananController::class, 'uploadFoto'])->name('pesanan.uploadFoto');
+Route::delete('/pesanan/{pesananId}/hapus-foto/{fotoId}', [PesananController::class, 'hapusFoto'])->name('pesanan.hapusFoto');
+Route::get('/pesanan/{pesananId}/download-foto/{fotoId}', [PesananController::class, 'downloadFoto'])->name('pesanan.downloadFoto');
+Route::post('/pesanan/{pesananId}/update-caption/{fotoId}', [PesananController::class, 'updateCaption'])->name('pesanan.updateCaption');
 
 
 

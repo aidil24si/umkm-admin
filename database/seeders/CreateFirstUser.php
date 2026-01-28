@@ -22,10 +22,10 @@ class CreateFirstUser extends Seeder
         // ];
 
         $data = [
-            'name'     => 'Dzikri Maulana',
-            'email'    => 'dzikri123@gmail.com',
+            'name'     => 'Aidil Ikhsan',
+            'email'    => 'aidil@gmail.com',
             'role'     => 'Super Admin',
-            'password' => Hash::make('dzikri123'),
+            'password' => Hash::make('aidil123'),
         ];
 
         User::create($data);

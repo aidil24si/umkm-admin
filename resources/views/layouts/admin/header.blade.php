@@ -2,7 +2,7 @@
 
     <div class="header-left active">
         <a href="{{ route('dashboard.index') }}" class="logo">
-            <img src="{{ asset('assets-admin/img/logo-admin.svg') }}" alt="">
+            <img src="{{ asset('assets-admin/img/logo-umkm.png') }}" alt="">
         </a>
         <a href="{{ route('dashboard.index') }}" class="logo-small">
             <img src="{{ asset('assets-admin/img/logo-small.png') }}" alt="">

@@ -1,57 +1,58 @@
 <?php
 namespace App\Models;
 
-use App\Models\Umkm;
+use App\Models\DetailPesanan;
 use App\Models\Media;
 use App\Models\Ulasan;
-use App\Models\Pesanan;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Umkm;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Warga extends Model
+class Produk extends Model
 {
     use HasFactory;
 
-    // Nama tabel (opsional jika nama jamak otomatis)
-    protected $table = 'warga';
+    // Nama tabel
+    protected $table = 'produk';
 
     // Primary key
-    protected $primaryKey = 'warga_id';
+    protected $primaryKey = 'produk_id';
 
     // Kolom yang bisa diisi (mass assignment)
     protected $fillable = [
-        'user_id',
-        'no_ktp',
-        'nama',
-        'jenis_kelamin',
-        'agama',
-        'pekerjaan',
-        'telp',
-        'email',
+        'umkm_id',
+        'nama_produk',
+        'deskripsi',
+        'harga',
+        'stok',
+        'status',
     ];
 
-    //relasi dengan Umkm : satu warga bisa punya banyak UMKM
+    /**
+     * Relasi:
+     * Produk dimiliki oleh satu UMKM
+     */
     public function umkm()
     {
-        return $this->hasMany(Umkm::class, 'pemilik_warga_id', 'warga_id');
+        return $this->belongsTo(Umkm::class, 'umkm_id', 'umkm_id');
     }
 
-    public function pesanan()
+    public function detailPesanan()
     {
-        return $this->hasMany(Pesanan::class, 'warga_id', 'warga_id');
+        return $this->hasMany(DetailPesanan::class, 'produk_id', 'produk_id');
     }
 
     public function ulasan()
     {
-        return $this->hasMany(Ulasan::class, 'warga_id', 'warga_id');
+        return $this->hasMany(Ulasan::class, 'produk_id', 'produk_id');
     }
 
-    // Relasi: satu warga bisa memiliki banyak media (foto, dokumen, dsb)
-    public function media()
+    public function foto()
     {
-        return $this->hasMany(Media::class, 'ref_id')
-            ->where('ref_table', 'warga');
+        return $this->hasMany(Media::class, 'ref_id', 'produk_id')
+            ->where('ref_table', 'produk')
+            ->orderBy('sort_order');
     }
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
@@ -74,5 +75,4 @@ class Warga extends Model
             });
         }
     }
-
 }

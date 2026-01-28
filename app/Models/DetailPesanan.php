@@ -1,57 +1,47 @@
 <?php
 namespace App\Models;
 
-use App\Models\Umkm;
-use App\Models\Media;
-use App\Models\Ulasan;
+use App\Models\Produk;
 use App\Models\Pesanan;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Warga extends Model
+class DetailPesanan extends Model
 {
     use HasFactory;
 
-    // Nama tabel (opsional jika nama jamak otomatis)
-    protected $table = 'warga';
+    // Nama tabel
+    protected $table = 'detail_pesanan';
 
     // Primary key
-    protected $primaryKey = 'warga_id';
+    protected $primaryKey = 'detail_id';
 
     // Kolom yang bisa diisi (mass assignment)
     protected $fillable = [
-        'user_id',
-        'no_ktp',
-        'nama',
-        'jenis_kelamin',
-        'agama',
-        'pekerjaan',
-        'telp',
-        'email',
+        'pesanan_id',
+        'produk_id',
+        'qty',
+        'harga_satuan',
+        'subtotal',
     ];
 
-    //relasi dengan Umkm : satu warga bisa punya banyak UMKM
-    public function umkm()
-    {
-        return $this->hasMany(Umkm::class, 'pemilik_warga_id', 'warga_id');
-    }
-
+    /**
+     * Relasi:
+     * Detail pesanan milik satu Pesanan
+     */
     public function pesanan()
     {
-        return $this->hasMany(Pesanan::class, 'warga_id', 'warga_id');
+        return $this->belongsTo(Pesanan::class, 'pesanan_id', 'pesanan_id');
     }
 
-    public function ulasan()
+    /**
+     * Relasi:
+     * Detail pesanan milik satu Produk
+     */
+    public function produk()
     {
-        return $this->hasMany(Ulasan::class, 'warga_id', 'warga_id');
-    }
-
-    // Relasi: satu warga bisa memiliki banyak media (foto, dokumen, dsb)
-    public function media()
-    {
-        return $this->hasMany(Media::class, 'ref_id')
-            ->where('ref_table', 'warga');
+        return $this->belongsTo(Produk::class, 'produk_id', 'produk_id');
     }
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
@@ -74,5 +64,4 @@ class Warga extends Model
             });
         }
     }
-
 }

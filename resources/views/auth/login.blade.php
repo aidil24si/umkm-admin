@@ -7,11 +7,12 @@
                 <div class="login-content">
                     <div class="login-userset">
                         <div class="login-logo">
-                            <img src="{{ asset('assets-admin/img/logo-admin.svg') }}" alt="img">
+                            <img src="{{ asset('assets-admin/img/logo-umkm.png') }}" alt="img">
                         </div>
                         <div class="login-userheading">
                             <h3>Login</h3>
                             <h4>Silahkan Login terlebih dahulu</h4>
+                            <h4>Untuk masuk ke halaman dashboard`</h4>
                         </div>
 
                         @if ($errors->any())
@@ -54,7 +55,19 @@
                         </form>
                     </div>
                 </div>
-                <div class="login-img">
+                <div class="login-img"
+                    style="
+                            flex: 1;
+                            background-image: url('{{ asset('assets-admin/img/umkm-login.png') }}');
+                            background-size: cover;
+                            background-position: center;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            text-align: center;
+                            padding: 2rem;
+                        ">
                 </div>
             </div>
         </div>

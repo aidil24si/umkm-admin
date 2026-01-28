@@ -20,16 +20,16 @@
 
                             {{-- LEFT COLUMN --}}
                             <div class="col-lg-4 text-center border-end">
-                                <img src="{{asset('assets-admin/img/FOTO GUA.jpg')}}"
+                                <img src="{{asset('')}}"
                                     class="rounded-circle mb-3" width="160" height="160" style="object-fit: cover;"
                                     alt="Profile">
 
-                                <h3 class="fw-bold">Dzikri Maulana</h3>
+                                <h3 class="fw-bold">Aidil Ikhsan</h3>
                                 <span class="badge bg-primary mb-2">Full Stack Developer</span>
 
                                 <p class="text-muted mt-3">
-                                    “Jangan pernah takut menghadapi masalah,
-                                    karena dari sanalah kita belajar.”
+                                    “Jangan Pantang Mneyerah,
+                                    karena Kita Tidak tahu Apa Hasil dari Kerja Keras kita.”
                                 </p>
 
                                 {{-- Social Media --}}
@@ -66,19 +66,19 @@
                                 <h5 class="fw-bold mb-3">📌 Informasi</h5>
                                 <div class="row">
                                     <div class="col-md-6 mb-2">
-                                        <p><strong>Nama Lengkap :</strong><br>Dzikri Maulana</p>
+                                        <p><strong>Nama Lengkap :</strong><br>Aidil Ikhsan</p>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <p><strong>Email :</strong><br>dzikri24si@mahasiswa.pcr.ac.id</p>
+                                        <p><strong>Email :</strong><br>ikhsan24si@mahasiswa.pcr.ac.id</p>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <p><strong>NIM :</strong><br>2457301037</p>
+                                        <p><strong>NIM :</strong><br>2457301008</p>
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <p><strong>Role :</strong><br>Super Admin / Developer</p>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <p><strong>Kelas :</strong><br>2 SI B</p>
+                                        <p><strong>Kelas :</strong><br>2 SI A</p>
                                     </div>
                                     <div class="col-md-6 mb-2">
                                         <p><strong>Prodi :</strong><br>D4 Sistem Informasi</p>

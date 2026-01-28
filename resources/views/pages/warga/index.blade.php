@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <select name="jenis_kelamin" class="form-select" onchange="this.form.submit()">
-                                        <option value="">All</option>
+                                        <option value="">Semua</option>
                                         <option value="Laki-laki"
                                             {{ request('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki
                                         </option>
@@ -39,7 +39,7 @@
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <input type="text" name="search" class="form-control" id="exampleInputIconRight"
-                                            value="{{ request('search') }}" placeholder="Search" aria-label="Search">
+                                            value="{{ request('search') }}" placeholder="Cari nama warga..." aria-label="Search">
                                         <button type="submit" class="input-group-text" id="basic-addon2">
                                             <img src="{{ asset('assets-admin/img/icons/search-white.svg') }}"
                                                 alt="img">
