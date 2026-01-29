@@ -24,7 +24,8 @@ class DashboardController extends Controller
             'totalUmkm'        => Umkm::count(),
             'totalProduk'      => Produk::count(),
             'totalStok'        => Produk::where('status', 'nonaktif')->sum('stok'),
-            'totalNilaiProduk' => Produk::sum(DB::raw('harga * stok')),
+            'totalNilaiProduk' => Produk::where('status', 'nonaktif')
+                ->sum(DB::raw('harga * stok')),
 
             // Data tabel
             'umkm'             => Umkm::latest()->take(5)->get(),
